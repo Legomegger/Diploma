@@ -47,8 +47,8 @@ h6 {
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-     background: url(../img/bgmain.png) no-repeat center center;*/
-    background-size: cover;
+     background: url(../img/backgroundmain.jpeg) no-repeat center center;
+     background-size: cover;
 }
 .intro-header img.basic{
     padding-top: 20px;
