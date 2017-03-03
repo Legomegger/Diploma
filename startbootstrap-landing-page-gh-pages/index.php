@@ -1,7 +1,16 @@
 <?php
+
+    require_once('connectvars.php');
+    require_once('functions.php');
+
+    //checking if button is pressed, if true - add form to db
+    if (isset($_POST['submit'])) {
+        addApplicationToDB();
+    }
+
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
 
@@ -198,16 +207,16 @@
                             И мы с Вами свяжемся</h2>
                         </div>
                         <div class="col-md-6">
-                            <form>
+                            <form method="POST" onSubmit="alert('Спасибо, Ваша заявка принята');">
                                 <div class="form-group">
                                     <label for="nameinput">Имя</label>
-                                    <input type="text" class="form-control" id="nameinput" placeholder="Ваше Имя">
+                                    <input type="text" class="form-control" id="nameinput" placeholder="Ваше Имя" name="name">
                                 </div>
                                 <div class="form-group">
                                     <label for="phoneinput">Контактный номер</label>
-                                    <input type="text" class="form-control" id="phoneinput" placeholder="Телефон">
+                                    <input type="text" class="form-control" id="phoneinput" placeholder="Телефон" name="phonenumber">
                                 </div>
-                                <button type="submit" class="btn btn-default">Оставить заявку</button>
+                                <button type="submit" class="btn btn-default" name="submit">Оставить заявку</button>
                             </form>
                         </div>
                     </div>

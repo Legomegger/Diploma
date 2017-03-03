@@ -1,3 +1,14 @@
+ <?php
+
+require_once('connectvars.php');
+require_once('functions.php');
+
+//checking if button is pressed, if true - add form to db
+    if (isset($_POST['submit'])) {
+        addApplicationToDB();
+    }
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -137,22 +148,33 @@
 <a  name="contact"></a>
 <div class="banner">
 
-    <div class="container">
+            <div class="container">
 
-        <div class="row">
-            <div class="col-md-6">
-                <h2>Свяжитесь с нами!</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Заинтересованы?<br />
+                            Заполните форму, оставьте свою заявку <br />
+                            И мы с Вами свяжемся</h2>
+                        </div>
+                        <div class="col-md-6">
+                            <form method="POST" onSubmit="alert('Спасибо, Ваша заявка принята');">
+                                <div class="form-group">
+                                    <label for="nameinput">Имя</label>
+                                    <input type="text" class="form-control" id="nameinput" placeholder="Ваше Имя" name="name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phoneinput">Контактный номер</label>
+                                    <input type="text" class="form-control" id="phoneinput" placeholder="Телефон" name="phonenumber">
+                                </div>
+                                <button type="submit" class="btn btn-default" name="submit">Оставить заявку</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container -->
+
             </div>
-            <div class="col-md-6">
-                Заглушка для формы
-            </div>
-        </div>
-
-    </div>
-    <!-- /.container -->
-
-</div>
-<!-- /.banner -->
 
 <!-- Footer -->
 <footer>
