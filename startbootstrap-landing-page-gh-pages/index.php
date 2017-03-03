@@ -126,13 +126,13 @@
                     <div class="col-lg-5 col-xs-12">
                         <hr class="section-heading-spacer">
                         <div class="clearfix"></div>
-                        <h2 class="section-heading"><a href="doneobjects.html">Завершенные объекты</a></h2>
+                        <h2 class="section-heading"><a href="doneobjects.php">Завершенные объекты</a></h2>
                         <p class="lead">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel officiis mollitia earum, libero eum placeat corrupti nemo odio dicta, cupiditate impedit nulla natus aut ullam eveniet tenetur explicabo et iste!
                         </p>
                     </div>
                     <div class="col-lg-5 col-lg-offset-2 col-xs-12">
-                        <a href="doneobjects.html"><img class="img-responsive img-rounded" src="img/doneobjectslogo.jpg" alt=""></a>
+                        <a href="doneobjects.php"><img class="img-responsive img-rounded" src="img/doneobjectslogo.jpg" alt=""></a>
                     </div>
                 </div>
 

@@ -43,19 +43,26 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand topnav" href="index.html">Главная страница</a>
+                    <a class="navbar-brand topnav" href="index.php">Главная страница</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
+
                         <li>
-                            <a href="#about">About</a>
+
+                            <a href="#done"> <span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span>Завершенные объекты</a>
+
+                        </li>
+
+                        <li>
+                        <a href="#development"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> Объекты в процессе строительства</a>
                         </li>
                         <li>
-                            <a href="#services">Services</a>
+                            <a href="#inprocess"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> Объекты в процессе проектирования</a>
                         </li>
                         <li>
-                            <a href="#contact">Contact</a>
+                            <a href="#contact"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> Контакты</a>
                         </li>
                     </ul>
                 </div>
