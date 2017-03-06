@@ -1,29 +1,57 @@
 <?php
-
 require_once('connectvars.php');
+require_once('logout.php');
+require_once('functions.php');
+session_start();
+if (!isset($_SESSION['username']) && (empty($_SESSION['username']))) {
+	header("Location: /webalizer/site/login.php"); /* Redirect browser */
+}
+elseif (!empty($_SESSION)) {
 
-function showApplicationsToAdmin(){
-	$dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
-	$query = "SELECT * FROM application_to_call";
-	$data = mysqli_query($dbc, $query);
-	while ($row = mysqli_fetch_array($data) {
-		echo "$row['id'] .' '.$row['name'].' '.$row['phonenumber']";
-	}
- }
+}
+if (isset($_POST['logout'])) {
+	logout();
+}
+
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Администраторская панель</title>
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom CSS -->
+	<link href="css/landing-page.css" rel="stylesheet">
+
 </head>
 <body>
-	<table>
-		<tr>
-			<td>
-				<?php showApplicationsToAdmin(); ?>
-			</td>
-		</tr>
-	</table>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-11">
+				<h1 class="text-center">Welcome to Admin Panel</h1>
+			</div>
+			<div class="col-md-1">
+				<form action="adminpanel.php" method="POST">
+					<span><p class="text-center">Wanna exit?</p></span>
+					<button type="submit" name="logout">Logout</button>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="table-responsive">
+					<span><h3 class="text-center">Заявки на обратный звонок</h3></span>
+					<table class="table table-bordered">
+						<?php showApplicationsToAdmin(); ?>
+
+					</table>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 </body>
 </html>

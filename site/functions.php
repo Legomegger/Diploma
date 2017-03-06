@@ -12,6 +12,21 @@ function addApplicationToDB(){
 		$data = mysqli_query($dbc, $query);
 	}
 }
+//showing data to adminpanel table
+function showApplicationsToAdmin(){
+	$dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+	$query = "SELECT * FROM application_to_call";
+	$data = mysqli_query($dbc, $query);
+	while ($row = mysqli_fetch_array($data)) {
+		echo "<tr>";
+		echo "<td>" . $row['id'] . "</td>";
+		echo "<td>" . $row['name'] . "</td>";
+		echo "<td>" . $row['phone_number'] . "</td>";
+		echo "</tr>";
+		
+	}
+}
+
 
 
 
