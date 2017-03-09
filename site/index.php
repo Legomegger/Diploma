@@ -1,12 +1,12 @@
 <?php
 
-    require_once('connectvars.php');
-    require_once('functions.php');
+require_once('connectvars.php');
+require_once('functions.php');
 
     //checking if button is pressed, if true - add form to db
-    if (isset($_POST['submit'])) {
-        addApplicationToDB();
-    }
+if (isset($_POST['submit'])) {
+    addApplicationToDB();
+}
 
 ?>
 <!DOCTYPE html>
@@ -67,7 +67,7 @@
                         </li>
 
                         <li>
-                        <a href="#development"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> Объекты в процессе строительства</a>
+                            <a href="#development"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> Объекты в процессе строительства</a>
                         </li>
                         <li>
                             <a href="#inprocess"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> Объекты в процессе проектирования</a>
@@ -163,7 +163,7 @@
                         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam numquam totam eveniet harum quos ea labore explicabo quisquam, alias voluptatem perferendis atque quod nobis eum, dolor accusamus! Hic, modi, esse.</p>
                     </div>
                     <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                        <img class="img-responsive img-rounded" src="img/developmentlogo.jpeg" alt="">
+                    <img class="img-responsive img-rounded" src="img/developmentlogo.jpeg" alt="">
                     </div>
                 </div>
 
@@ -181,11 +181,11 @@
                     <div class="col-lg-5 col-sm-6">
                         <hr class="section-heading-spacer">
                         <div class="clearfix"></div>
-                        <h2 class="section-heading">Объекты в процессе проектирования</h2>
+                        <h2 class="section-heading"><a href="inprocess.php">Объекты в процессе проектирования</a></h2>
                         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, nihil temporibus eveniet harum rerum atque voluptate error? Nostrum nemo, veniam facere eius temporibus enim dolores, eum praesentium, explicabo quibusdam cupiditate.</p>
                     </div>
                     <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                        <img class="img-responsive img-rounded" src="img/inprocesslogo.jpg" alt="">
+                           <a href="inprocess.php"> <img class="img-responsive img-rounded" src="img/inprocesslogo.jpg" alt=""></a>
                     </div>
                 </div>
 
@@ -234,7 +234,7 @@
                         <div class="col-lg-12">
                             <ul class="list-inline">
                                 <li>
-                                    <a href="#">Главная</a>
+                                    <a href="index.php">Главная</a>
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
@@ -246,7 +246,7 @@
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
-                                    <a href="#inprocess">Объекты в процессе проектирования</a>
+                                    <a href="inprocess.php">Объекты в процессе проектирования</a>
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>

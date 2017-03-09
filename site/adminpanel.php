@@ -20,6 +20,7 @@ function showDate(){
 	echo "<br>".date("h:i:sa");
 }
 
+
 ?>
 
 <!DOCTYPE html>
@@ -75,22 +76,20 @@ function showDate(){
 					<h5 class="text-center">Добавить проект</h5>
 				</span>
 				<div class="col-md-12">
-				<div class="col-md-9">
-					<form method="POST">
-						<input type="text" name="textheader" placeholder="Заголовок"><br>
-						<hr class="section-heading-spacer">
-						<textarea cols="90" rows="9" name="textarea" placeholder="Описание объекта"></textarea>
-					</form>		<br>
-					</div>
-					<div class="col-md-3">
+
 					<form method="POST" enctype="multipart/form-data">
-						<input type="file" name="fileToUpload"><br>
-						<input type="submit" value="Загрузить изображение" name="submit">
-					</form>	
-					</div>
-				</div>	
+						<div class="col-md-6"><input type="text" name="textheader" placeholder="Заголовок"><br>
+							<hr class="section-heading-spacer">
+							<textarea cols="70" rows="9" name="textarea" placeholder="Описание объекта"></textarea></div>
+							<div class="col-md-6"><input type="file" name="fileToUpload"><br>
+								<input type="submit" value="Загрузить изображение" name="submit"><br>
+							</div>
+
+						</form>	
+
+					</div>	
+				</div>
 			</div>
 		</div>
-	</div>
-</body>
-</html>
+	</body>
+	</html>

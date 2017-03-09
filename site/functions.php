@@ -27,11 +27,8 @@ function showApplicationsToAdmin(){
 		echo "<td>" . $row['name'] . "</td>";
 		echo "<td>" . $row['phone_number'] . "</td>";
 		echo "<td>" . $row['date'] . "</td>";
-		echo "</tr>";
-		
-		
-	}	
-
+		echo "</tr>";	
+	}
 }
 
 

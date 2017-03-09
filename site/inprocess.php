@@ -2,6 +2,9 @@
 
  require_once('connectvars.php');
  require_once('functions.php');
+ require_once('appvars.php');
+ require_once('upload.php');
+
 
 //checking if button is pressed, if true - add form to db
  if (isset($_POST['submit'])) {
@@ -92,8 +95,63 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="clearfix"></div>
-                        <h2 class="section-heading text-center">Объекты введенные в эксплуатацию</h2>
-                        <p class="lead text-center">Завершенные объекты</p>
+                        <h2 class="section-heading text-center">Объекты в процессе проектирования</h2>
+                        
+                        <!-- PHP show content code -->
+                        <?php 
+                        $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+                        $query="SELECT * FROM inprocess_add";
+                        $data=mysqli_query($dbc,$query);
+                        $x=0;
+                        while ($row = mysqli_fetch_array($data)) {
+                            if ($x % 2 == 0) {
+                                echo "<div class=content-section-a>";
+                                echo "<div class=container>";
+                                echo "<div class=row>";
+                                echo "<div class = col-md-12>";
+                                echo "<h1 class=text-center>";
+                                echo $row['header'];
+                                echo "</h1>";
+                                echo "<div class=row>";
+                                echo "<div class = col-md-6>";
+                                echo '<img src="' . GW_UPLOADPATH . $row['image'] . '" alt="Score image" />';
+                                echo"</div>";
+                                echo "<div class = col-md-6>";
+                                echo $row['text'];
+                                echo"</div>";
+                                echo"</div>";
+                                echo"</div>";
+                                echo"</div>";
+                                echo "<hr>";
+                                echo "</div>";
+                                echo "</div>";
+                            } else {
+                                echo "<div class=content-section-a>";
+                                echo "<div class=container>";
+                                echo "<div class=row>";
+                                echo "<div class = col-md-12>";
+                                echo "<h1 class=text-center>";
+                                echo $row['header'];
+                                echo "</h1>";
+                                echo "<div class=row>";
+                                echo "<div class = col-md-6>";
+                                echo '<img src="' . GW_UPLOADPATH . $row['image'] . '" alt="Score image" />';
+                                echo"</div>";
+                                echo "<div class = col-md-6>";
+                                echo $row['text'];
+                                echo"</div>";
+                                echo"</div>";
+                                echo"</div>";
+                                echo"</div>";
+                                echo "<hr>";
+                                echo "</div>";
+                                echo "</div>";
+                            }
+                        }
+
+
+                        ?>
+                        <!-- / PHP show content code -->
                     </div>
                     
                     <div class="col-md-6 col-xs-6">
@@ -147,7 +205,7 @@
                         <div class="col-lg-12">
                             <ul class="list-inline">
                                 <li>
-                                    <a href="#">Главная</a>
+                                    <a href="index.php">Главная</a>
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
@@ -159,7 +217,7 @@
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
-                                    <a href="#inprocess">Объекты в процессе проектирования</a>
+                                    <a href="inprocess.php">Объекты в процессе проектирования</a>
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
