@@ -6,9 +6,13 @@ require_once('connectvars.php');
 
 function addApplicationToDB(){
 	$dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+	//escaping strings
+	$namevar = mysqli_real_escape_string($dbc,$_POST['name']);
+	$phonenumbervar = mysqli_real_escape_string($dbc,$_POST['phonenumber']);
+	//end of escaping
 	if (isset($_POST['name'])&& isset($_POST['phonenumber'])){
 		$query = "INSERT INTO application_to_call (name, phone_number)
-		VALUES ('$_POST[name]','$_POST[phonenumber]')";
+		VALUES ('$namevar','$phonenumbervar')";
 		$data = mysqli_query($dbc, $query);
 	}
 }
@@ -22,9 +26,12 @@ function showApplicationsToAdmin(){
 		echo "<td>" . $row['id'] . "</td>";
 		echo "<td>" . $row['name'] . "</td>";
 		echo "<td>" . $row['phone_number'] . "</td>";
+		echo "<td>" . $row['date'] . "</td>";
 		echo "</tr>";
 		
-	}
+		
+	}	
+
 }
 
 
