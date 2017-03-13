@@ -1,9 +1,11 @@
 <?php
+//подключение внешних файлов
 require_once('connectvars.php');
 require_once('logout.php');
 require_once('functions.php');
 require_once('upload.php');
-session_start();
+//подключение внешних файлов /
+session_start(); //начало сессии
 if (!isset($_SESSION['username']) && (empty($_SESSION['username']))) {
 	header("Location: /webalizer/site/login.php"); /* Redirect browser */
 }
@@ -34,6 +36,7 @@ function showDate(){
 
 </head>
 <body>
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10">
@@ -49,7 +52,9 @@ function showDate(){
 				<span><p class="text-center">Сегодня</p></span>
 				<?php showDate(); ?>
 			</div>
+
 		</div>
+		
 		<div class="row">
 			<div class="col-md-12">
 				<div class="table-responsive">
@@ -68,21 +73,27 @@ function showDate(){
 				</div>
 			</div>
 		</div>
-		<!-- форма для добавления в объекты в процессе строительства-->
+		
 		<div class="row">
 			<div class="col-md-12 center-block">
-				
-				<span><h3 class="text-center">Объекты в процессе строительства</h3>
+				<span><h3 class="text-center">Добавить проект</h3>
 					<h5 class="text-center">Добавить проект</h5>
 				</span>
 				<div class="col-md-12">
-
 					<form method="POST" enctype="multipart/form-data">
 						<div class="col-md-6"><input type="text" name="textheader" placeholder="Заголовок"><br>
 							<hr class="section-heading-spacer">
 							<textarea cols="70" rows="9" name="textarea" placeholder="Описание объекта"></textarea></div>
 							<div class="col-md-6"><input type="file" name="fileToUpload"><br>
+								
+								<select name ="select">
+									<option value="1">Завершенные объекты</option>
+									<option value="2">Объекты в процессе строительства</option>
+									<option value="3">Объекты в процессе проектирования</option>
+								</select>
+
 								<input type="submit" value="Загрузить изображение" name="submit"><br>
+								
 							</div>
 
 						</form>	
@@ -90,6 +101,7 @@ function showDate(){
 					</div>	
 				</div>
 			</div>
+
 		</div>
 	</body>
 	</html>

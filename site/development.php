@@ -1,8 +1,9 @@
  <?php
 
-require_once('connectvars.php');
+ require_once('connectvars.php');
  require_once('functions.php');
  require_once('appvars.php');
+
 
 //checking if button is pressed, if true - add form to db
  if (isset($_POST['submit'])) {
@@ -21,13 +22,13 @@ require_once('connectvars.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Завершенные объекты</title>
+    <title>Объекты в процессе строительства</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/landing-page.css" rel="stylesheet">
+    <link href="css/landing-page1.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -93,15 +94,17 @@ require_once('connectvars.php');
                 <div class="row">
                     <div class="col-md-12">
                         <div class="clearfix"></div>
-                        <h2 class="section-heading text-center">Объекты введенные в эксплуатацию</h2>
+                        <h2 class="section-heading text-center">Объекты в процессе строительства</h2>
+                        
                         <!-- PHP show content code -->
                         <?php 
                         $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-                        $query="SELECT * FROM done_add";
+                        $query="SELECT * FROM development_add";
                         $data=mysqli_query($dbc,$query);
                         $x=0;
                         while ($row = mysqli_fetch_array($data)) {
                             $x=$x+1;
+                            //for push and pull
                             $result="<div class=content-section-";
                             $resultending="<div class=container>"."<div class=row>"."<div class = col-md-12>"."<h1 class=text-center style=margin-bottom:20px>".$row['header']."</h1>"."<div class=row>"."<div class = col-md-6>".'<img src="' . GW_UPLOADPATH . $row['image'] . '" alt="Score image" / class="img-rounded">'."</div>"."<div class = col-md-5>".$row['text']."</div>"."</div>"."</div>"."</div>"."</div>"."</div>";
                             if ($x % 2 == 0) {
@@ -169,7 +172,7 @@ require_once('connectvars.php');
                         <div class="col-lg-12">
                             <ul class="list-inline">
                                 <li>
-                                    <a href="#">Главная</a>
+                                    <a href="index.php">Главная</a>
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
@@ -177,11 +180,11 @@ require_once('connectvars.php');
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
-                                    <a href="#development">Объекты в процессе строительства</a>
+                                    <a href="development.php">Объекты в процессе строительства</a>
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
-                                    <a href="#inprocess">Объекты в процессе проектирования</a>
+                                    <a href="inprocess.php">Объекты в процессе проектирования</a>
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>

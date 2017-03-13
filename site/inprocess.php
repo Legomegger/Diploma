@@ -3,7 +3,6 @@
  require_once('connectvars.php');
  require_once('functions.php');
  require_once('appvars.php');
- require_once('upload.php');
 
 
 //checking if button is pressed, if true - add form to db
@@ -29,7 +28,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/landing-page.css" rel="stylesheet">
+    <link href="css/landing-page1.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -104,49 +103,17 @@
                         $data=mysqli_query($dbc,$query);
                         $x=0;
                         while ($row = mysqli_fetch_array($data)) {
+                            $x=$x+1;
+                            //for push and pull
+                            $result="<div class=content-section-";
+                            $resultending="<div class=container>"."<div class=row>"."<div class = col-md-12>"."<h1 class=text-center style=margin-bottom:20px>".$row['header']."</h1>"."<div class=row>"."<div class = col-md-6>".'<img src="' . GW_UPLOADPATH . $row['image'] . '" alt="Score image" / class="img-rounded">'."</div>"."<div class = col-md-5>".$row['text']."</div>"."</div>"."</div>"."</div>"."</div>"."</div>";
                             if ($x % 2 == 0) {
-                                echo "<div class=content-section-a>";
-                                echo "<div class=container>";
-                                echo "<div class=row>";
-                                echo "<div class = col-md-12>";
-                                echo "<h1 class=text-center>";
-                                echo $row['header'];
-                                echo "</h1>";
-                                echo "<div class=row>";
-                                echo "<div class = col-md-6>";
-                                echo '<img src="' . GW_UPLOADPATH . $row['image'] . '" alt="Score image" />';
-                                echo"</div>";
-                                echo "<div class = col-md-6>";
-                                echo $row['text'];
-                                echo"</div>";
-                                echo"</div>";
-                                echo"</div>";
-                                echo"</div>";
-                                echo "<hr>";
-                                echo "</div>";
-                                echo "</div>";
+                                $result.="b>".$resultending;
+
                             } else {
-                                echo "<div class=content-section-a>";
-                                echo "<div class=container>";
-                                echo "<div class=row>";
-                                echo "<div class = col-md-12>";
-                                echo "<h1 class=text-center>";
-                                echo $row['header'];
-                                echo "</h1>";
-                                echo "<div class=row>";
-                                echo "<div class = col-md-6>";
-                                echo '<img src="' . GW_UPLOADPATH . $row['image'] . '" alt="Score image" />';
-                                echo"</div>";
-                                echo "<div class = col-md-6>";
-                                echo $row['text'];
-                                echo"</div>";
-                                echo"</div>";
-                                echo"</div>";
-                                echo"</div>";
-                                echo "<hr>";
-                                echo "</div>";
-                                echo "</div>";
+                                $result.="a>".$resultending;
                             }
+                            echo $result;
                         }
 
 
@@ -213,7 +180,7 @@
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
-                                    <a href="#development">Объекты в процессе строительства</a>
+                                    <a href="development.php">Объекты в процессе строительства</a>
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>

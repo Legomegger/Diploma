@@ -1,6 +1,7 @@
 <?php
 require_once('connectvars.php');
 require_once('appvars.php');
+require_once('adminpanel.php');
 if (!empty($_FILES)) {
 
     $textheader = $_POST['textheader'];
@@ -27,7 +28,7 @@ if (!empty($_FILES)) {
         $uploadOk = 0;
     }
 // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
+    if ($_FILES["fileToUpload"]["size"] > 5000000) {
         echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
@@ -46,11 +47,27 @@ if ($uploadOk == 0) {
        $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
             // Write the data to the database
-       
-       $query = "INSERT INTO inprocess_add (header, text, image) VALUES ('$textheader','$textarea','$image')";
-       mysqli_query($dbc, $query);
-       echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-   } else {
+       $selectoption=$_POST['select'];
+       switch ($selectoption) {
+           case '1':
+           $query = "INSERT INTO done_add (header, text, image) VALUES ('$textheader','$textarea','$image')";
+           mysqli_query($dbc, $query);
+           echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+           break;
+           case '2':
+           $query = "INSERT INTO development_add (header, text, image) VALUES ('$textheader','$textarea','$image')";
+           mysqli_query($dbc, $query);
+           echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+           break;
+           case '3':
+           $query = "INSERT INTO inprocess_add (header, text, image) VALUES ('$textheader','$textarea','$image')";
+           mysqli_query($dbc, $query);
+           echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+           break;
+       }
+
+   }
+   else {
     echo "Sorry, there was an error uploading your file.";
 }
 }

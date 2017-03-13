@@ -159,11 +159,11 @@ if (isset($_POST['submit'])) {
                     <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                         <hr class="section-heading-spacer">
                         <div class="clearfix"></div>
-                        <h2 class="section-heading">Объекты в процессе строительства</h2>
+                        <h2 class="section-heading"><a href="development.php">Объекты в процессе строительства</a></h2>
                         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam numquam totam eveniet harum quos ea labore explicabo quisquam, alias voluptatem perferendis atque quod nobis eum, dolor accusamus! Hic, modi, esse.</p>
                     </div>
                     <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <img class="img-responsive img-rounded" src="img/developmentlogo.jpeg" alt="">
+                    <a href="development.php"><img class="img-responsive img-rounded" src="img/developmentlogo.jpeg" alt=""></a>
                     </div>
                 </div>
 
@@ -242,7 +242,7 @@ if (isset($_POST['submit'])) {
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
-                                    <a href="#development">Объекты в процессе строительства</a>
+                                    <a href="development.php">Объекты в процессе строительства</a>
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
