@@ -97,8 +97,22 @@ function showDate(){
 							</div>
 
 						</form>	
-
+						
 					</div>	
+					<div class="col-md-12 center-block">
+						<span><h3 class="text-center">Добавить файлы проекта</h3>
+						</span>
+						<div class="col-md-12">
+							<form method="POST">
+								<div class="col-md-6"><input type="file" name="fileToUpload"></div>
+								<div class="col-md-6"><input type="file" name="fileToUpload"><br>
+									<input type="submit" value="Отправить файлы" name="submita">
+								</div>
+
+							</form>
+
+						</div>
+					</div>
 				</div>
 			</div>
 
