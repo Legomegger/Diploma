@@ -1,6 +1,6 @@
  <?php
 
-require_once('connectvars.php');
+ require_once('connectvars.php');
  require_once('functions.php');
  require_once('appvars.php');
 
@@ -94,9 +94,17 @@ require_once('connectvars.php');
                     <div class="col-md-12">
                         <div class="clearfix"></div>
                         <h2 class="section-heading text-center">Данные объекта</h2>
-                        <!-- PHP show content code -->
-                        
-                        <!-- / PHP show content code -->
+                        <?php
+
+                        $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+                        $query = "SELECT * FROM done_show";
+                        $data = mysqli_query($dbc, $query);
+                        while ($row = mysqli_fetch_array($data)) {
+                            $result = '<img src="' . GW_UPLOADPATH . $row['imggp'] . '" alt="Score image" / class="img-rounded">';
+                            echo $result;
+                        }
+
+                        ?>
                     </div>
                     
                     <div class="col-md-6 col-xs-6">

@@ -146,11 +146,11 @@ require_once('connectvars.php');
                             <form method="POST" onSubmit="alert('Спасибо, Ваша заявка принята');">
                                 <div class="form-group">
                                     <label for="nameinput">Имя</label>
-                                    <input type="text" class="form-control" id="nameinput" placeholder="Ваше Имя" name="name">
+                                    <input type="text" class="form-control" id="nameinput" required placeholder="Ваше Имя" name="name">
                                 </div>
                                 <div class="form-group">
                                     <label for="phoneinput">Контактный номер</label>
-                                    <input type="text" class="form-control" id="phoneinput" placeholder="Телефон" name="phonenumber">
+                                    <input type="text" class="form-control" id="phoneinput" required placeholder="Телефон" name="phonenumber">
                                 </div>
                                 <button type="submit" class="btn btn-default" name="submit">Оставить заявку</button>
                             </form>

@@ -3,12 +3,9 @@ require_once('connectvars.php');
 require_once('appvars.php');
 require_once('adminpanel.php');
 if (!empty($_FILES)) {
-
   $textheader = $_POST['textheader'];
   $textarea = $_POST['textarea'];
   $image=$_FILES['fileToUpload']['name'];
-  $imagegp=$_FILES['fileToUpload']['name'];
-  $imagepro=$_FILES['fileToUpload']['name'];
   $target_dir = "uploadedfiles/";
   $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
   $uploadOk = 1;
@@ -72,20 +69,7 @@ if ($uploadOk == 0) {
   echo "Sorry, there was an error uploading your file.";
 }
 }
-if ($uploadOk == 0) {
-  echo "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
-}else{
-  if ((move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file))&& isset($_POST['submita'])) {
-   $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-            // Write the data to the database
-   $query="INSERT INTO done_show (imggp,imgpro) VALUES ('$imggp','$imgpro')";
-   mysqli_query($dbc,$query);
-   echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+}
 
- }
- else{echo "error";}
-}
-}
 
 ?>

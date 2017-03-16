@@ -3,7 +3,8 @@
 require_once('connectvars.php');
 require_once('logout.php');
 require_once('functions.php');
-require_once('upload.php');
+
+
 //подключение внешних файлов /
 session_start(); //начало сессии
 if (!isset($_SESSION['username']) && (empty($_SESSION['username']))) {
@@ -15,7 +16,9 @@ elseif (!empty($_SESSION)) {
 if (isset($_POST['logout'])) {
 	logout();
 }
-
+if (isset($_POST['main'])) {
+	header("Location: /webalizer/site/index.php");
+}
 function showDate(){
 	echo date("d/m/Y");
 	date_default_timezone_set("Asia/Almaty");
@@ -40,6 +43,9 @@ function showDate(){
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10">
+				<form method="POST">
+					<button type="submit" name="main">Go to Index</button>
+				</form>
 				<h1 class="text-center">Welcome to Admin Panel</h1>
 			</div>
 			<div class="col-md-1">
@@ -80,7 +86,9 @@ function showDate(){
 					<h5 class="text-center">Добавить проект</h5>
 				</span>
 				<div class="col-md-12">
-					<form method="POST" enctype="multipart/form-data">
+					<form method="POST" enctype="multipart/form-data" action="upload.php">
+
+						<?php require_once('upload.php'); ?>
 						<div class="col-md-6"><input type="text" name="textheader" placeholder="Заголовок"><br>
 							<hr class="section-heading-spacer">
 							<textarea cols="70" rows="9" name="textarea" placeholder="Описание объекта"></textarea></div>
@@ -100,12 +108,35 @@ function showDate(){
 						
 					</div>	
 					<div class="col-md-12 center-block">
-						<span><h3 class="text-center">Добавить файлы проекта</h3>
+						<span><h3 class="text-center">Добавить файлы в Завершенные проекты</h3>
 						</span>
 						<div class="col-md-12">
-							<form method="POST">
-								<div class="col-md-6"><input type="file" name="fileToUpload"></div>
-								<div class="col-md-6"><input type="file" name="fileToUpload"><br>
+							<form method="POST" enctype="multipart/form-data" action ="uploaddone.php">
+								<?php require_once('uploaddone.php'); ?>
+								<div class="col-md-6"><input type="file" name="fileToUploadgp"></div>
+								<div class="col-md-6"><input type="file" name="fileToUploadpro"><br>
+									<?php
+									$dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+									$query = "SELECT id, header FROM done_add";
+									$query1="SELECT header FROM done_add";
+									$data = mysqli_query($dbc, $query);
+									$data1=mysqli_query($dbc, $query1);
+									$array=[];
+									
+									while ($row = mysqli_fetch_array($data)) {
+										$option = [];
+										$option['id'] = $row['id'];
+										$option['header'] = $row['header'];
+										$array[] = $option;
+
+									}
+									?>
+									<select name="selectlink">
+										<?php foreach ($array as $option) {?>    
+										<option value = "<?php echo $option['id'];?>"
+										><?php echo $option['header'];?></option>
+										<?php } ?>
+									</select>
 									<input type="submit" value="Отправить файлы" name="submita">
 								</div>
 
@@ -113,6 +144,84 @@ function showDate(){
 
 						</div>
 					</div>
+
+					<div class="col-md-12 center-block">
+						<span><h3 class="text-center">Добавить файлы в Проекты в процессе строительства</h3>
+						</span>
+						<div class="col-md-12">
+							<form method="POST" enctype="multipart/form-data" action ="uploaddev.php">
+								<?php require_once('uploaddev.php'); ?>
+								<div class="col-md-6"><input type="file" name="fileToUploadgpdev"></div>
+								<div class="col-md-6"><input type="file" name="fileToUploadprodev"><br>
+									<?php
+									$dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+									$query = "SELECT id, header FROM development_add";
+									
+									$data = mysqli_query($dbc, $query);
+									
+									$array=[];
+									
+									while ($row = mysqli_fetch_array($data)) {
+										$option = [];
+										$option['id'] = $row['id'];
+										$option['header'] = $row['header'];
+										$array[] = $option;
+
+									}
+									?>
+									<select name="selectlink">
+										<?php foreach ($array as $option) {?>    
+										<option value = "<?php echo $option['id'];?>"
+										><?php echo $option['header'];?></option>
+										<?php } ?>
+									</select>
+									<input type="submit" value="Отправить файлы" name="submitb">
+								</div>
+
+							</form>
+
+						</div>
+					</div>
+
+
+					<div class="col-md-12 center-block">
+						<span><h3 class="text-center">Добавить файлы в Объекты в процессе проектирования</h3>
+						</span>
+						<div class="col-md-12">
+							<form method="POST" enctype="multipart/form-data" action ="uploadinprocess.php">
+								<?php require_once('uploadinprocess.php'); ?>
+								<div class="col-md-6"><input type="file" name="fileToUploadgpinpro"></div>
+								<div class="col-md-6"><input type="file" name="fileToUploadproinpro"><br>
+									<?php
+									$dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+									$query = "SELECT id, header FROM inprocess_add";
+									
+									$data = mysqli_query($dbc, $query);
+									
+									$array=[];
+									
+									while ($row = mysqli_fetch_array($data)) {
+										$option = [];
+										$option['id'] = $row['id'];
+										$option['header'] = $row['header'];
+										$array[] = $option;
+
+									}
+									?>
+									<select name="selectlink">
+										<?php foreach ($array as $option) {?>    
+										<option value = "<?php echo $option['id'];?>"
+										><?php echo $option['header'];?></option>
+										<?php } ?>
+									</select>
+									<input type="submit" value="Отправить файлы" name="submitc">
+								</div>
+
+							</form>
+
+						</div>
+					</div>
+
 				</div>
 			</div>
 
