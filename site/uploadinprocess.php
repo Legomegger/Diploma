@@ -2,9 +2,12 @@
 require_once('connectvars.php');
 require_once('appvars.php');
 require_once('adminpanel.php');
+if (isset($_POST['submitc'])) {
+
 if (!empty($_FILES)) {
   $imagegp=$_FILES['fileToUploadgpinpro']['name'];
   $imagepro=$_FILES['fileToUploadproinpro']['name'];
+  $text=$_POST['textareac'];
   $id_k=$_POST['selectlink'];
   $target_dir = "uploadedfiles/inprocessfiles/";
   $target_filegp = $target_dir . basename($_FILES["fileToUploadgpinpro"]["name"]);
@@ -51,12 +54,13 @@ if ($uploadOk == 0) {
     (move_uploaded_file($_FILES["fileToUploadproinpro"]["tmp_name"], $target_filepro));
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
             // Write the data to the database
-    $query="INSERT INTO inprocess_show (imggp,imgpro,id_k) VALUES ('$imagegp','$imagepro','$id_k')";
+    $query="INSERT INTO inprocess_show (imggp,imgpro,id_k,text) VALUES ('$imagegp','$imagepro','$id_k','$text')";
     mysqli_query($dbc,$query);
     echo "The file ". basename($_FILES["fileToUploadgpinpro"]["name"]). basename($_FILES["fileToUploadproinpro"]["name"]). " has been uploaded.";
 
   }
 }
 }
-
+ 
+}
 ?>

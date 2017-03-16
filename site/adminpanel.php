@@ -115,6 +115,7 @@ function showDate(){
 								<?php require_once('uploaddone.php'); ?>
 								<div class="col-md-6"><input type="file" name="fileToUploadgp"></div>
 								<div class="col-md-6"><input type="file" name="fileToUploadpro"><br>
+								<textarea cols="70" rows="9" name="textareaa" placeholder="Описание объекта"></textarea>
 									<?php
 									$dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 									$query = "SELECT id, header FROM done_add";
@@ -153,6 +154,7 @@ function showDate(){
 								<?php require_once('uploaddev.php'); ?>
 								<div class="col-md-6"><input type="file" name="fileToUploadgpdev"></div>
 								<div class="col-md-6"><input type="file" name="fileToUploadprodev"><br>
+								<textarea cols="70" rows="9" name="textareab" placeholder="Описание объекта"></textarea>
 									<?php
 									$dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 									$query = "SELECT id, header FROM development_add";
@@ -192,6 +194,7 @@ function showDate(){
 								<?php require_once('uploadinprocess.php'); ?>
 								<div class="col-md-6"><input type="file" name="fileToUploadgpinpro"></div>
 								<div class="col-md-6"><input type="file" name="fileToUploadproinpro"><br>
+								<textarea cols="70" rows="9" name="textareac" placeholder="Описание объекта"></textarea>
 									<?php
 									$dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 									$query = "SELECT id, header FROM inprocess_add";

@@ -2,6 +2,9 @@
 require_once('connectvars.php');
 require_once('appvars.php');
 require_once('adminpanel.php');
+if (isset($_POST['submit'])) {
+
+
 if (!empty($_FILES)) {
   $textheader = $_POST['textheader'];
   $textarea = $_POST['textarea'];
@@ -71,5 +74,5 @@ if ($uploadOk == 0) {
 }
 }
 
-
+}
 ?>

@@ -97,10 +97,10 @@
                         <?php
 
                         $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
-                        $query = "SELECT * FROM done_show";
+                        $query = "SELECT * FROM development_show";
                         $data = mysqli_query($dbc, $query);
                         while ($row = mysqli_fetch_array($data)) {
-                            $result = '<img src="' . GW_UPLOADPATH . $row['imggp'] . '" alt="Score image" / class="img-rounded">';
+                            $result = '<img src="' . GW_UPLOADPATH ."/developmentfiles"."/". $row['imggp'] . '" alt="Score image" / class="img-rounded">'.$row['text'];
                             echo $result;
                         }
 

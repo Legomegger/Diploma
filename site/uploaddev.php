@@ -2,9 +2,12 @@
 require_once('connectvars.php');
 require_once('appvars.php');
 require_once('adminpanel.php');
+if (isset($_POST['submitb'])) {
+
 if (!empty($_FILES)) {
   $imagegp=$_FILES['fileToUploadgpdev']['name'];
   $imagepro=$_FILES['fileToUploadprodev']['name'];
+  $text=$_POST['textareab'];
   $id_k=$_POST['selectlink'];
   $target_dir = "uploadedfiles/developmentfiles/";
   $target_filegp = $target_dir . basename($_FILES["fileToUploadgpdev"]["name"]);
@@ -51,12 +54,12 @@ if ($uploadOk == 0) {
     (move_uploaded_file($_FILES["fileToUploadprodev"]["tmp_name"], $target_filepro));
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
             // Write the data to the database
-    $query="INSERT INTO development_show (imggp,imgpro,id_k) VALUES ('$imagegp','$imagepro','$id_k')";
+    $query="INSERT INTO development_show (imggp,imgpro,id_k,text) VALUES ('$imagegp','$imagepro','$id_k','$text')";
     mysqli_query($dbc,$query);
     echo "The file ". basename($_FILES["fileToUploadgpdev"]["name"]). basename($_FILES["fileToUploadprodev"]["name"]). " has been uploaded.";
 
   }
 }
 }
-
+}
 ?>
