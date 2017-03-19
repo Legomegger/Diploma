@@ -3,7 +3,7 @@
  require_once('connectvars.php');
  require_once('functions.php');
  require_once('appvars.php');
-
+session_start();
 //checking if button is pressed, if true - add form to db
  if (isset($_POST['submit'])) {
     addApplicationToDB();
@@ -95,12 +95,12 @@
                         <div class="clearfix"></div>
                         <h2 class="section-heading text-center">Данные объекта</h2>
                         <?php
-
+                        $varid = $_SESSION['varid'];
                         $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
-                        $query = "SELECT * FROM development_show";
+                        $query = "SELECT * FROM done_show WHERE id_k = '$varid'";
                         $data = mysqli_query($dbc, $query);
                         while ($row = mysqli_fetch_array($data)) {
-                            $result = '<img src="' . GW_UPLOADPATH ."/developmentfiles"."/". $row['imggp'] . '" alt="Score image" / class="img-rounded">'.$row['text'];
+                            $result = '<img src="' . GW_UPLOADPATH ."/donefiles"."/". $row['imggp'] . '" alt="Score image" / class="img-rounded">'.$row['text'].'<img src="' . GW_UPLOADPATH ."/donefiles"."/". $row['imgpro'] . '" alt="Score image" / class="img-rounded">'.$row['text'];
                             echo $result;
                         }
 

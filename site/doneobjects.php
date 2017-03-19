@@ -3,7 +3,7 @@
 require_once('connectvars.php');
  require_once('functions.php');
  require_once('appvars.php');
-
+session_start();
 //checking if button is pressed, if true - add form to db
  if (isset($_POST['submit'])) {
     addApplicationToDB();
@@ -103,7 +103,7 @@ require_once('connectvars.php');
                         while ($row = mysqli_fetch_array($data)) {
                             $x=$x+1;
                             $result="<div class=content-section-";
-                            $resultending="<div class=container>"."<div class=row>"."<div class = col-md-12>"."<h1 class=text-center style=margin-bottom:20px>".$row['header']."</h1>"."<div class=row>"."<div class = col-md-6>".'<img src="' . GW_UPLOADPATH . $row['image'] . '" alt="Score image" / class="img-rounded">'."</div>"."<div class = col-md-5>".$row['text']."</div>"."</div>"."</div>"."</div>"."</div>"."</div>";
+                            $resultending="<div class=container>"."<div class=row>"."<div class = col-md-12>"."<h1 class=text-center style=margin-bottom:20px>".'<a href="page.php">'.$row['header'].'</a>'."</h1>"."<div class=row>"."<div class = col-md-6>".'<img src="' . GW_UPLOADPATH . $row['image'] . '" alt="Score image" / class="img-rounded">'."</div>"."<div class = col-md-5>".$row['text']."</div>"."</div>"."</div>"."</div>"."</div>"."</div>";
                             if ($x % 2 == 0) {
                                 $result.="b>".$resultending;
 
@@ -112,7 +112,10 @@ require_once('connectvars.php');
                             }
                             echo $result;
                         }
-
+                        
+                            $varid=$row['id'];
+                            $_SESSION['varid']=$varid;
+                        
 
                         ?>
                         <!-- / PHP show content code -->
