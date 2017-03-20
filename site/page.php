@@ -3,7 +3,7 @@
  require_once('connectvars.php');
  require_once('functions.php');
  require_once('appvars.php');
-session_start();
+
 //checking if button is pressed, if true - add form to db
  if (isset($_POST['submit'])) {
     addApplicationToDB();
@@ -95,13 +95,48 @@ session_start();
                         <div class="clearfix"></div>
                         <h2 class="section-heading text-center">Данные объекта</h2>
                         <?php
-                        $varid = $_SESSION['varid'];
+
+                       
+                        
+                        
+                        if (isset($_GET['done_show'])) {
+                           $getvardone = $_GET['done_show']; 
                         $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
-                        $query = "SELECT * FROM done_show WHERE id_k = '$varid'";
+                        $query = "SELECT * FROM done_show WHERE id_k = '$getvardone'";
                         $data = mysqli_query($dbc, $query);
                         while ($row = mysqli_fetch_array($data)) {
-                            $result = '<img src="' . GW_UPLOADPATH ."/donefiles"."/". $row['imggp'] . '" alt="Score image" / class="img-rounded">'.$row['text'].'<img src="' . GW_UPLOADPATH ."/donefiles"."/". $row['imgpro'] . '" alt="Score image" / class="img-rounded">'.$row['text'];
-                            echo $result;
+                             $constructor = "<div class= container>"."<div class=row>"."<div class=col-md-6>".
+                        '<img src="' . GW_UPLOADPATH ."/donefiles"."/". $row['imggp'] . '" alt="Score image" / class="img-rounded">'.'<br>'.'<img src="' . GW_UPLOADPATH ."/donefiles"."/". $row['imgpro'] . '" alt="Score image" / class="img-rounded">'
+                        ."</div>"."<div class=col-md-6>".$row['text']."</div>"."</div>"."</div>";
+                            echo $constructor;
+                        }
+                        }
+
+                        if (isset($_GET['inprocess_show'])) {
+                           $getvarinprocess=$_GET['inprocess_show'];
+                        $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+                        $query = "SELECT * FROM inprocess_show WHERE id_k = '$getvarinprocess'";
+                        $data = mysqli_query($dbc, $query);
+                        while ($row = mysqli_fetch_array($data)) {
+                             $constructor = "<div class= container>"."<div class=row>"."<div class=col-md-6>".
+                        '<img src="' . GW_UPLOADPATH ."/inprocessfiles"."/". $row['imggp'] . '" alt="Score image" / class="img-rounded">'.'<img src="' . GW_UPLOADPATH ."/inprocessfiles"."/". $row['imgpro'] . '" alt="Score image" / class="img-rounded">'
+                        ."</div>"."<div class=col-md-6>".$row['text']."</div>"."</div>"."</div>";
+                            echo $constructor;
+                        }
+                        }
+
+                        if (isset($_GET['development_show'])) {
+                           
+                        $getvardevelopment=$_GET['development_show'];
+                        $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+                        $query = "SELECT * FROM development_show WHERE id_k = '$getvardevelopment'";
+                        $data = mysqli_query($dbc, $query);
+                        while ($row = mysqli_fetch_array($data)) {
+                             $constructor = "<div class= container>"."<div class=row>"."<div class=col-md-6>".
+                        '<img src="' . GW_UPLOADPATH ."/developmentfiles"."/". $row['imggp'] . '" alt="Score image" / class="img-rounded">'.'<img src="' . GW_UPLOADPATH ."/developmentfiles"."/". $row['imgpro'] . '" alt="Score image" / class="img-rounded">'
+                        ."</div>"."<div class=col-md-6>".$row['text']."</div>"."</div>"."</div>";
+                            echo $constructor;
+                        }
                         }
 
                         ?>

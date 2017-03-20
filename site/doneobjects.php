@@ -3,7 +3,6 @@
 require_once('connectvars.php');
  require_once('functions.php');
  require_once('appvars.php');
-session_start();
 //checking if button is pressed, if true - add form to db
  if (isset($_POST['submit'])) {
     addApplicationToDB();
@@ -63,15 +62,15 @@ session_start();
 
                         <li>
 
-                            <a href="#done"> <span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span>Завершенные объекты</a>
+                            <a href="doneobjects.php"> <span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span>Завершенные объекты</a>
 
                         </li>
 
                         <li>
-                            <a href="#development"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> Объекты в процессе строительства</a>
+                            <a href="development.php"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> Объекты в процессе строительства</a>
                         </li>
                         <li>
-                            <a href="#inprocess"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> Объекты в процессе проектирования</a>
+                            <a href="inprocess.php"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> Объекты в процессе проектирования</a>
                         </li>
                         <li>
                             <a href="#contact"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> Контакты</a>
@@ -94,16 +93,23 @@ session_start();
                     <div class="col-md-12">
                         <div class="clearfix"></div>
                         <h2 class="section-heading text-center">Объекты введенные в эксплуатацию</h2>
+
+
+                       
                         <!-- PHP show content code -->
                         <?php 
+                       
+
+
                         $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
                         $query="SELECT * FROM done_add";
                         $data=mysqli_query($dbc,$query);
                         $x=0;
                         while ($row = mysqli_fetch_array($data)) {
+                            $readfurther=$row['id'];
                             $x=$x+1;
                             $result="<div class=content-section-";
-                            $resultending="<div class=container>"."<div class=row>"."<div class = col-md-12>"."<h1 class=text-center style=margin-bottom:20px>".'<a href="page.php">'.$row['header'].'</a>'."</h1>"."<div class=row>"."<div class = col-md-6>".'<img src="' . GW_UPLOADPATH . $row['image'] . '" alt="Score image" / class="img-rounded">'."</div>"."<div class = col-md-5>".$row['text']."</div>"."</div>"."</div>"."</div>"."</div>"."</div>";
+                            $resultending="<div class=container>"."<div class=row>"."<div class = col-md-12>"."<h1 class=text-center style=margin-bottom:20px>".$row['header']."</h1>"."<div class=row>"."<div class = col-md-6>".'<img src="' . GW_UPLOADPATH . $row['image'] . '" alt="Score image" / class="img-rounded">'."</div>"."<div class = col-md-5>".$row['text'].'<a href="page.php?done_show='.$readfurther.'">'."Читать далее".'</a>'."</div>"."</div>"."</div>"."</div>"."</div>"."</div>";
                             if ($x % 2 == 0) {
                                 $result.="b>".$resultending;
 
@@ -111,11 +117,8 @@ session_start();
                                 $result.="a>".$resultending;
                             }
                             echo $result;
+
                         }
-                        
-                            $varid=$row['id'];
-                            $_SESSION['varid']=$varid;
-                        
 
                         ?>
                         <!-- / PHP show content code -->
