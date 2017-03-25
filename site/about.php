@@ -5,12 +5,7 @@
  require_once('appvars.php');
 require_once('common.php');
  session_start();
-
-//checking if button is pressed, if true - add form to db
- if (isset($_POST['submit'])) {
-    addApplicationToDB();
-}
-function getCurrentLanguage()
+ function getCurrentLanguage()
 {
     if(isset($_REQUEST['lang']))
     {
@@ -38,7 +33,7 @@ getCurrentLanguage();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?php echo $lang['MENU_INPROCESS'] ?></title>
+    <title><?php echo $lang['MENU_ABOUT_US']?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -72,7 +67,7 @@ getCurrentLanguage();
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand topnav" href="index.php"><?php echo $lang['MENU_HOME'] ?></a>
+                    <a class="navbar-brand topnav" href="index.php"><?php echo $lang['MENU_HOME']?></a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -118,33 +113,9 @@ getCurrentLanguage();
                 <div class="row">
                     <div class="col-md-12">
                         <div class="clearfix"></div>
-                        <h2 class="section-heading text-center"><?php echo $lang['MENU_INPROCESS'] ?></h2>
+                        <h2 class="section-heading text-center"><?php echo $lang['MENU_ABOUT_US']?></h2>
                         
-                        <!-- PHP show content code -->
-                        <?php 
-                        
-                        $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-                        $query="SELECT * FROM inprocess_add";
-                        $data=mysqli_query($dbc,$query);
-                        $x=0;
-                        while ($row = mysqli_fetch_array($data)) {
-                            $readfurther=$row['id'];
-                            $x=$x+1;
-                            //for push and pull
-                            $result="<div class=content-section-";
-                            $resultending="<div class=container>"."<div class=row>"."<div class = col-md-12>"."<h1 class=text-center style=margin-bottom:20px>".$row['header']."</h1>"."<div class=row>"."<div class = col-md-6>".'<img src="' . GW_UPLOADPATH . $row['image'] . '" alt="Score image" / class="img-rounded">'."</div>"."<div class = col-md-5>".$row['text'].'<a href="page.php?inprocess_show='.$readfurther.'">'.'<br>'.'<h3>'.$lang['READFURTHER'].'</h3>'.'</a>'."</div>"."</div>"."</div>"."</div>"."</div>"."</div>";
-                            if ($x % 2 == 0) {
-                                $result.="b>".$resultending;
-
-                            } else {
-                                $result.="a>".$resultending;
-                            }
-                            echo $result;
-                        }
-
-
-                        ?>
-                        <!-- / PHP show content code -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2147.446503716887!2d63.585287579108154!3d53.182123178557354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sru!2sru!4v1490347707929" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
                     
                     <div class="col-md-6 col-xs-6">
@@ -163,7 +134,7 @@ getCurrentLanguage();
         <a  name="contact"></a>
         <div class="banner">
 
-           <div class="container">
+            <div class="container">
 
                 <div class="row">
                     <div class="col-md-6">
@@ -227,6 +198,7 @@ getCurrentLanguage();
                         </div>
                 </div>
             </footer>
+
 
             <!-- jQuery -->
             <script src="js/jquery.js"></script>

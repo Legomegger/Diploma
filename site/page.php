@@ -3,11 +3,29 @@
  require_once('connectvars.php');
  require_once('functions.php');
  require_once('appvars.php');
+ require_once('common.php');
+ session_start();
 
 //checking if button is pressed, if true - add form to db
  if (isset($_POST['submit'])) {
     addApplicationToDB();
 }
+function getCurrentLanguage()
+{
+    if(isset($_REQUEST['lang']))
+    {
+//Validate that $_REQUEST[‘lang’] is valid
+        return $_SESSION['lang'] = $_REQUEST['lang'];
+    }
+
+    if(isset($_SESSION['lang']))
+    {
+        return $_SESSION['lang'];
+    }
+
+return 'ru'; //Default
+}
+getCurrentLanguage();
 
 ?>
 <!DOCTYPE html>
@@ -55,7 +73,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand topnav" href="index.php">Главная страница</a>
+                    <a class="navbar-brand topnav" href="index.php"><?php echo $lang['MENU_HOME']?></a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -63,19 +81,21 @@
 
                         <li>
 
-                            <a href="#done"> <span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span>Завершенные объекты</a>
+                            <a href="#done"> <span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span><?php echo $lang['MENU_DONE'] ?></a>
 
                         </li>
 
                         <li>
-                            <a href="#development"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> Объекты в процессе строительства</a>
+                            <a href="#development"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> <?php echo $lang['MENU_DEVELOPMENT'] ?></a>
                         </li>
                         <li>
-                            <a href="#inprocess"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> Объекты в процессе проектирования</a>
+                            <a href="#inprocess"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> <?php echo $lang['MENU_INPROCESS'] ?></a>
                         </li>
+
                         <li>
-                            <a href="#contact"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> Контакты</a>
+                            <a href="about.php"><?php echo $lang['MENU_ABOUT_US'] ?></a>
                         </li>
+                        
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -93,137 +113,140 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="clearfix"></div>
-                        <h2 class="section-heading text-center">Данные объекта</h2>
-                        <?php
-
-                       
+                        <h2 class="section-heading text-center"><?php echo $lang['PAGEHEADER']?></h2>
                         
+                        <?php
                         
                         if (isset($_GET['done_show'])) {
-                           $getvardone = $_GET['done_show']; 
-                        $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
-                        $query = "SELECT * FROM done_show WHERE id_k = '$getvardone'";
-                        $data = mysqli_query($dbc, $query);
-                        while ($row = mysqli_fetch_array($data)) {
-                             $constructor = "<div class= container>"."<div class=row>"."<div class=col-md-6>".
-                        '<img src="' . GW_UPLOADPATH ."/donefiles"."/". $row['imggp'] . '" alt="Score image" / class="img-rounded">'.'<br>'.'<img src="' . GW_UPLOADPATH ."/donefiles"."/". $row['imgpro'] . '" alt="Score image" / class="img-rounded">'
-                        ."</div>"."<div class=col-md-6>".$row['text']."</div>"."</div>"."</div>";
-                            echo $constructor;
-                        }
-                        }
+                         $getvardone = $_GET['done_show']; 
+                         $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+                         $query = "SELECT * FROM done_show WHERE id_k = '$getvardone'";
+                         $data = mysqli_query($dbc, $query);
+                         while ($row = mysqli_fetch_array($data)) {
+                           $constructor = "<div class= container>"."<div class=row>"."<div class=col-md-6>".
+                           '<img src="' . GW_UPLOADPATH ."/donefiles"."/". $row['imggp'] . '" alt="Score image" / class="img-rounded">'.'<hr>'.'<img src="' . GW_UPLOADPATH ."/donefiles"."/". $row['imgpro'] . '" alt="Score image" / class="img-rounded">'
+                           ."</div>"."<div class=col-md-6>".$row['text']."</div>"."</div>"."</div>";
+                           echo $constructor;
+                       }
+                   }
 
-                        if (isset($_GET['inprocess_show'])) {
-                           $getvarinprocess=$_GET['inprocess_show'];
-                        $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
-                        $query = "SELECT * FROM inprocess_show WHERE id_k = '$getvarinprocess'";
-                        $data = mysqli_query($dbc, $query);
-                        while ($row = mysqli_fetch_array($data)) {
-                             $constructor = "<div class= container>"."<div class=row>"."<div class=col-md-6>".
-                        '<img src="' . GW_UPLOADPATH ."/inprocessfiles"."/". $row['imggp'] . '" alt="Score image" / class="img-rounded">'.'<img src="' . GW_UPLOADPATH ."/inprocessfiles"."/". $row['imgpro'] . '" alt="Score image" / class="img-rounded">'
-                        ."</div>"."<div class=col-md-6>".$row['text']."</div>"."</div>"."</div>";
-                            echo $constructor;
-                        }
-                        }
+                   if (isset($_GET['inprocess_show'])) {
+                     $getvarinprocess=$_GET['inprocess_show'];
+                     $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+                     $query = "SELECT * FROM inprocess_show WHERE id_k = '$getvarinprocess'";
+                     $data = mysqli_query($dbc, $query);
+                     while ($row = mysqli_fetch_array($data)) {
+                       $constructor = "<div class= container>"."<div class=row>"."<div class=col-md-6>".
+                       '<img src="' . GW_UPLOADPATH ."/inprocessfiles"."/". $row['imggp'] . '" alt="Score image" / class="img-rounded">'.'<hr>'.'<img src="' . GW_UPLOADPATH ."/inprocessfiles"."/". $row['imgpro'] . '" alt="Score image" / class="img-rounded">'
+                       ."</div>"."<div class=col-md-6>".$row['text']."</div>"."</div>"."</div>";
+                       echo $constructor;
+                   }
+               }
 
-                        if (isset($_GET['development_show'])) {
-                           
-                        $getvardevelopment=$_GET['development_show'];
-                        $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
-                        $query = "SELECT * FROM development_show WHERE id_k = '$getvardevelopment'";
-                        $data = mysqli_query($dbc, $query);
-                        while ($row = mysqli_fetch_array($data)) {
-                             $constructor = "<div class= container>"."<div class=row>"."<div class=col-md-6>".
-                        '<img src="' . GW_UPLOADPATH ."/developmentfiles"."/". $row['imggp'] . '" alt="Score image" / class="img-rounded">'.'<img src="' . GW_UPLOADPATH ."/developmentfiles"."/". $row['imgpro'] . '" alt="Score image" / class="img-rounded">'
-                        ."</div>"."<div class=col-md-6>".$row['text']."</div>"."</div>"."</div>";
-                            echo $constructor;
-                        }
-                        }
+               if (isset($_GET['development_show'])) {
 
-                        ?>
-                    </div>
-                    
-                    <div class="col-md-6 col-xs-6">
+                $getvardevelopment=$_GET['development_show'];
+                $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+                $query = "SELECT * FROM development_show WHERE id_k = '$getvardevelopment'";
+                $data = mysqli_query($dbc, $query);
+                while ($row = mysqli_fetch_array($data)) {
+                   $constructor = "<div class= container>"."<div class=row>"."<div class=col-md-6>".
+                   '<img src="' . GW_UPLOADPATH ."/developmentfiles"."/". $row['imggp'] . '" alt="Score image" / class="img-rounded">'.'<hr>'.'<img src="' . GW_UPLOADPATH ."/developmentfiles"."/". $row['imgpro'] . '" alt="Score image" / class="img-rounded">'
+                   ."</div>"."<div class=col-md-6>".$row['text']."</div>"."</div>"."</div>";
+                   echo $constructor;
+               }
+           }
 
-                    </div>
+           ?>
+       </div>
 
-                </div>
+       <div class="col-md-6 col-xs-6">
 
-            </div>
-            <!-- /.container -->
+       </div>
 
-        </div>
-        <!-- /.content-section-a -->
+   </div>
+
+</div>
+<!-- /.container -->
+
+</div>
+<!-- /.content-section-a -->
 
 
-        <a  name="contact"></a>
-        <div class="banner">
+<a  name="contact"></a>
+<div class="banner">
 
-            <div class="container">
+    <div class="container">
 
                 <div class="row">
                     <div class="col-md-6">
-                        <h2>Заинтересованы?<br />
-                            Заполните форму, оставьте свою заявку <br />
-                            И мы с Вами свяжемся</h2>
+                        <h2><?php echo $lang['MENU_CONTACT'] ?><br />
+                            <?php echo $lang['MENU_CONTACT2'] ?> <br />
+                            <?php echo $lang['MENU_CONTACT3'] ?><br>
+                            <?php echo $lang['MENU_CONTACT4'] ?></h2>
                         </div>
                         <div class="col-md-6">
                             <form method="POST" onSubmit="alert('Спасибо, Ваша заявка принята');">
                                 <div class="form-group">
-                                    <label for="nameinput">Имя</label>
-                                    <input type="text" class="form-control" id="nameinput" placeholder="Ваше Имя" name="name">
+                                    <label for="nameinput"><?php echo $lang['MENU_NAME'] ?></label>
+                                    <input type="text" class="form-control" id="nameinput" required placeholder="<?php echo $lang['MENU_NAME'] ?>" name="name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="phoneinput">Контактный номер</label>
-                                    <input type="text" class="form-control" id="phoneinput" placeholder="Телефон" name="phonenumber">
+                                    <label for="phoneinput"><?php echo $lang['MENU_QUEST'] ?></label>
+                                    <input type="text" class="form-control" id="themeinput" required placeholder="<?php echo $lang['MENU_QUEST'] ?>" name="theme">
                                 </div>
-                                <button type="submit" class="btn btn-default" name="submit">Оставить заявку</button>
+                                <div class="form-group">
+                                    <label for="phoneinput"><?php echo $lang['MENU_PHONE'] ?></label>
+                                    <input type="text" class="form-control" id="phoneinput" required placeholder="<?php echo $lang['MENU_PHONE'] ?>" name="phonenumber">
+                                </div>
+                                <button type="submit" class="btn btn-default" name="submit"><?php echo $lang['MENU_BUTTON'] ?></button>
                             </form>
                         </div>
                     </div>
 
                 </div>
-                <!-- /.container -->
+        <!-- /.container -->
 
-            </div>
+    </div>
 
-            <!-- Footer -->
-            <footer>
+    <!-- Footer -->
+    <footer>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <ul class="list-inline">
                                 <li>
-                                    <a href="#">Главная</a>
+                                    <a href="index.php"><?php echo $lang['MENU_HOME'] ?></a>
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
-                                    <a href="#done">Завершенные объекты</a>
+                                    <a href="doneobjects.php"><?php echo $lang['MENU_DONE'] ?></a>
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
-                                    <a href="#development">Объекты в процессе строительства</a>
+                                    <a href="development.php"><?php echo $lang['MENU_DEVELOPMENT'] ?></a>
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
-                                    <a href="#inprocess">Объекты в процессе проектирования</a>
+                                    <a href="inprocess.php"><?php echo $lang['MENU_INPROCESS'] ?></a>
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
-                                    <a href="#contact">Контакты</a>
+                                    <a href="about.php"><?php echo $lang['MENU_ABOUT_US'] ?></a>
                                 </li>
                             </ul>
-                            <p class="copyright text-muted small">&copy; ТОО "АрхСтройСервис 07". Все права защищены</p>
+                            <p class="copyright text-muted small">&copy; <?php echo $lang['FOOTER_TEXT'] ?></p>
+
                         </div>
-                    </div>
                 </div>
             </footer>
 
-            <!-- jQuery -->
-            <script src="js/jquery.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
-            <!-- Bootstrap Core JavaScript -->
-            <script src="js/bootstrap.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
-        </body>
+</body>
 
-        </html>
+</html>

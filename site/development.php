@@ -3,13 +3,29 @@
  require_once('connectvars.php');
  require_once('functions.php');
  require_once('appvars.php');
-
+require_once('common.php');
+ session_start();
 
 //checking if button is pressed, if true - add form to db
  if (isset($_POST['submit'])) {
     addApplicationToDB();
 }
+function getCurrentLanguage()
+{
+    if(isset($_REQUEST['lang']))
+    {
+//Validate that $_REQUEST[‘lang’] is valid
+        return $_SESSION['lang'] = $_REQUEST['lang'];
+    }
 
+    if(isset($_SESSION['lang']))
+    {
+        return $_SESSION['lang'];
+    }
+
+return 'ru'; //Default
+}
+getCurrentLanguage();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +38,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Объекты в процессе строительства</title>
+    <title><?php echo $lang['MENU_DEVELOPMENT'] ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -56,7 +72,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand topnav" href="index.php">Главная страница</a>
+                    <a class="navbar-brand topnav" href="index.php"><?php echo $lang['MENU_HOME'] ?></a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -64,18 +80,26 @@
 
                         <li>
 
-                            <a href="doneobjects.php"> <span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span>Завершенные объекты</a>
+                            <a href="doneobjects.php"> <span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span><?php echo $lang['MENU_DONE'] ?></a>
 
                         </li>
 
                         <li>
-                            <a href="development.php"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> Объекты в процессе строительства</a>
+                            <a href="development.php"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> <?php echo $lang['MENU_DEVELOPMENT'] ?></a>
                         </li>
                         <li>
-                            <a href="inprocess.php"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> Объекты в процессе проектирования</a>
+                            <a href="inprocess.php"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> <?php echo $lang['MENU_INPROCESS'] ?></a>
                         </li>
                         <li>
-                            <a href="#contact"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> Контакты</a>
+                            <a href="contact.php"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> <?php echo $lang['MENU_ABOUT_US'] ?></a>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $lang['MENU_LANG']?><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="?lang=ru">Русский</a></li>
+                                <li><a href="?lang=kk">Қазақ</a></li>
+                                <li><a href="?lang=en">English</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -94,7 +118,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="clearfix"></div>
-                        <h2 class="section-heading text-center">Объекты в процессе строительства</h2>
+                        <h2 class="section-heading text-center"><?php echo $lang['MENU_DEVELOPMENT'] ?></h2>
                         
                         <!-- PHP show content code -->
                         <?php 
@@ -107,7 +131,7 @@
                             $x=$x+1;
                             //for push and pull
                             $result="<div class=content-section-";
-                            $resultending="<div class=container>"."<div class=row>"."<div class = col-md-12>"."<h1 class=text-center style=margin-bottom:20px>".$row['header']."</h1>"."<div class=row>"."<div class = col-md-6>".'<img src="' . GW_UPLOADPATH . $row['image'] . '" alt="Score image" / class="img-rounded">'."</div>"."<div class = col-md-5>".$row['text'].'<a href="page.php?development_show='.$readfurther.'">'."Читать далее".'</a>'."</div>"."</div>"."</div>"."</div>"."</div>"."</div>";
+                            $resultending="<div class=container>"."<div class=row>"."<div class = col-md-12>"."<h1 class=text-center style=margin-bottom:20px>".$row['header']."</h1>"."<div class=row>"."<div class = col-md-6>".'<img src="' . GW_UPLOADPATH . $row['image'] . '" alt="Score image" / class="img-rounded">'."</div>"."<div class = col-md-5>".$row['text'].'<a href="page.php?development_show='.$readfurther.'">'.'<br>'.'<h3>'.$lang['READFURTHER'].'</h3>'.'</a>'."</div>"."</div>"."</div>"."</div>"."</div>"."</div>";
                             if ($x % 2 == 0) {
                                 $result.="b>".$resultending;
 
@@ -142,21 +166,26 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <h2>Заинтересованы?<br />
-                            Заполните форму, оставьте свою заявку <br />
-                            И мы с Вами свяжемся</h2>
+                        <h2><?php echo $lang['MENU_CONTACT'] ?><br />
+                            <?php echo $lang['MENU_CONTACT2'] ?> <br />
+                            <?php echo $lang['MENU_CONTACT3'] ?><br>
+                            <?php echo $lang['MENU_CONTACT4'] ?></h2>
                         </div>
                         <div class="col-md-6">
                             <form method="POST" onSubmit="alert('Спасибо, Ваша заявка принята');">
                                 <div class="form-group">
-                                    <label for="nameinput">Имя</label>
-                                    <input type="text" class="form-control" id="nameinput" required  placeholder="Ваше Имя" name="name">
+                                    <label for="nameinput"><?php echo $lang['MENU_NAME'] ?></label>
+                                    <input type="text" class="form-control" id="nameinput" required placeholder="<?php echo $lang['MENU_NAME'] ?>" name="name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="phoneinput">Контактный номер</label>
-                                    <input type="text" class="form-control" id="phoneinput" required placeholder="Телефон" name="phonenumber">
+                                    <label for="phoneinput"><?php echo $lang['MENU_QUEST'] ?></label>
+                                    <input type="text" class="form-control" id="themeinput" required placeholder="<?php echo $lang['MENU_QUEST'] ?>" name="theme">
                                 </div>
-                                <button type="submit" class="btn btn-default" name="submit">Оставить заявку</button>
+                                <div class="form-group">
+                                    <label for="phoneinput"><?php echo $lang['MENU_PHONE'] ?></label>
+                                    <input type="text" class="form-control" id="phoneinput" required placeholder="<?php echo $lang['MENU_PHONE'] ?>" name="phonenumber">
+                                </div>
+                                <button type="submit" class="btn btn-default" name="submit"><?php echo $lang['MENU_BUTTON'] ?></button>
                             </form>
                         </div>
                     </div>
@@ -173,30 +202,31 @@
                         <div class="col-lg-12">
                             <ul class="list-inline">
                                 <li>
-                                    <a href="index.php">Главная</a>
+                                    <a href="index.php"><?php echo $lang['MENU_HOME'] ?></a>
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
-                                    <a href="#done">Завершенные объекты</a>
+                                    <a href="doneobjects.php"><?php echo $lang['MENU_DONE'] ?></a>
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
-                                    <a href="development.php">Объекты в процессе строительства</a>
+                                    <a href="development.php"><?php echo $lang['MENU_DEVELOPMENT'] ?></a>
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
-                                    <a href="inprocess.php">Объекты в процессе проектирования</a>
+                                    <a href="inprocess.php"><?php echo $lang['MENU_INPROCESS'] ?></a>
                                 </li>
                                 <li class="footer-menu-divider">&sdot;</li>
                                 <li>
-                                    <a href="#contact">Контакты</a>
+                                    <a href="about.php"><?php echo $lang['MENU_ABOUT_US'] ?></a>
                                 </li>
                             </ul>
-                            <p class="copyright text-muted small">&copy; ТОО "АрхСтройСервис 07". Все права защищены</p>
+                            <p class="copyright text-muted small">&copy; <?php echo $lang['FOOTER_TEXT'] ?></p>
+
                         </div>
-                    </div>
                 </div>
             </footer>
+
 
             <!-- jQuery -->
             <script src="js/jquery.js"></script>
