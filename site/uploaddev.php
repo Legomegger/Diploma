@@ -8,10 +8,11 @@ if (!empty($_FILES)) {
   $imagegp=$_FILES['fileToUploadgpdev']['name'];
   $imagepro=$_FILES['fileToUploadprodev']['name'];
   $text=$_POST['textareab'];
+  $textheader=$_POST['headerb'];
   $id_k=$_POST['selectlink'];
   $target_dir = "uploadedfiles/developmentfiles/";
-  $target_filegp = $target_dir . basename($_FILES["fileToUploadgpdev"]["name"]);
-  $target_filepro = $target_dir . basename($_FILES["fileToUploadprodev"]["name"]);
+  $target_filegp = $target_dir .time(). basename($_FILES["fileToUploadgpdev"]["name"]);
+  $target_filepro = $target_dir .time(). basename($_FILES["fileToUploadprodev"]["name"]);
   $uploadOk = 1;
   $imageFileTypegp = pathinfo($target_filegp,PATHINFO_EXTENSION);
     $imageFileTypepro = pathinfo($target_filepro,PATHINFO_EXTENSION);
@@ -54,7 +55,7 @@ if ($uploadOk == 0) {
     (move_uploaded_file($_FILES["fileToUploadprodev"]["tmp_name"], $target_filepro));
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
             // Write the data to the database
-    $query="INSERT INTO development_show (imggp,imgpro,id_k,text) VALUES ('$imagegp','$imagepro','$id_k','$text')";
+    $query="INSERT INTO development_show (header,imggp,imgpro,id_k,text) VALUES ('$textheader','$imagegp','$imagepro','$id_k','$text')";
     mysqli_query($dbc,$query);
     echo "The file ". basename($_FILES["fileToUploadgpdev"]["name"]). basename($_FILES["fileToUploadprodev"]["name"]). " has been uploaded.";
 

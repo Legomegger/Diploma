@@ -149,7 +149,7 @@ require_once('connectvars.php');
     					<div class="clearfix"></div>
     					<h2 class="section-heading"><a href="doneobjects.php"><?php echo $lang['MENU_DONE'] ?></a></h2>
     					<p class="lead">
-    						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel officiis mollitia earum, libero eum placeat corrupti nemo odio dicta, cupiditate impedit nulla natus aut ullam eveniet tenetur explicabo et iste!
+    						<?php echo $lang['DONE_TEXT']?>
     					</p>
     				</div>
     				<div class="col-lg-5 col-lg-offset-2 col-xs-12">
@@ -172,7 +172,8 @@ require_once('connectvars.php');
     					<hr class="section-heading-spacer">
     					<div class="clearfix"></div>
     					<h2 class="section-heading"><a href="development.php"><?php echo $lang['MENU_DEVELOPMENT'] ?></a></h2>
-    					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam numquam totam eveniet harum quos ea labore explicabo quisquam, alias voluptatem perferendis atque quod nobis eum, dolor accusamus! Hic, modi, esse.</p>
+    					<p class="lead"><?php echo $lang['DEVELOPMENT_TEXT']?>
+    					</p>
     				</div>
     				<div class="col-lg-5 col-sm-pull-6  col-sm-6">
     					<a href="development.php"><img class="img-responsive img-rounded" src="img/developmentlogo.jpeg" alt=""></a>
@@ -194,7 +195,8 @@ require_once('connectvars.php');
     					<hr class="section-heading-spacer">
     					<div class="clearfix"></div>
     					<h2 class="section-heading"><a href="inprocess.php"><?php echo $lang['MENU_INPROCESS'] ?></a></h2>
-    					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, nihil temporibus eveniet harum rerum atque voluptate error? Nostrum nemo, veniam facere eius temporibus enim dolores, eum praesentium, explicabo quibusdam cupiditate.</p>
+    					<p class="lead"><?php echo $lang['INPROCESS_TEXT']?>
+    					</p>
     				</div>
     				<div class="col-lg-5 col-lg-offset-2 col-sm-6">
     					<a href="inprocess.php"> <img class="img-responsive img-rounded" src="img/inprocesslogo.jpg" alt=""></a>

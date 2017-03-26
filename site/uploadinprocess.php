@@ -8,10 +8,11 @@ if (!empty($_FILES)) {
   $imagegp=$_FILES['fileToUploadgpinpro']['name'];
   $imagepro=$_FILES['fileToUploadproinpro']['name'];
   $text=$_POST['textareac'];
+  $textheader=$_POST['headerc'];
   $id_k=$_POST['selectlink'];
   $target_dir = "uploadedfiles/inprocessfiles/";
-  $target_filegp = $target_dir . basename($_FILES["fileToUploadgpinpro"]["name"]);
-  $target_filepro = $target_dir . basename($_FILES["fileToUploadproinpro"]["name"]);
+  $target_filegp = $target_dir .time(). basename($_FILES["fileToUploadgpinpro"]["name"]);
+  $target_filepro = $target_dir .time(). basename($_FILES["fileToUploadproinpro"]["name"]);
   $uploadOk = 1;
   $imageFileTypegp = pathinfo($target_filegp,PATHINFO_EXTENSION);
     $imageFileTypepro = pathinfo($target_filepro,PATHINFO_EXTENSION);
@@ -54,7 +55,7 @@ if ($uploadOk == 0) {
     (move_uploaded_file($_FILES["fileToUploadproinpro"]["tmp_name"], $target_filepro));
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
             // Write the data to the database
-    $query="INSERT INTO inprocess_show (imggp,imgpro,id_k,text) VALUES ('$imagegp','$imagepro','$id_k','$text')";
+    $query="INSERT INTO inprocess_show (header,imggp,imgpro,id_k,text) VALUES ('$textheader','$imagegp','$imagepro','$id_k','$text')";
     mysqli_query($dbc,$query);
     echo "The file ". basename($_FILES["fileToUploadgpinpro"]["name"]). basename($_FILES["fileToUploadproinpro"]["name"]). " has been uploaded.";
 

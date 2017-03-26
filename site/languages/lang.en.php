@@ -14,7 +14,10 @@ $lang['HEADER_TITLE3'] ='In construction market since 2007';
 $lang['FOOTER_TEXT']='LP "АрхСтройСервис 07". All rights reserved';
 $lang['SLOGAN'] = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus tempore, quod accusantium iusto impedit nam pariatur animi obcaecati consectetur! Excepturi, eligendi, veritatis. Accusamus ea a maiores deserunt. Ducimus, atque, odit.';
 $lang['READFURTHER']='More';
-$lang['PAGEHEADER']='Object';
+$lang['PAGEHEADER']='Information about';
+$lang['DONE_TEXT']='Объекты сданные в эксплуатацию в городе Костанай';
+$lang['DEVELOPMENT_TEXT']='Объекты находящиеся в стадии строительства.';
+$lang['INPROCESS_TEXT']='Планируемые объекты для строительства.';
 
 // Menu
 $lang['MENU_LANG']='Language: ';

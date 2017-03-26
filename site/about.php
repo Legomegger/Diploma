@@ -3,10 +3,10 @@
  require_once('connectvars.php');
  require_once('functions.php');
  require_once('appvars.php');
-require_once('common.php');
+ require_once('common.php');
  session_start();
  function getCurrentLanguage()
-{
+ {
     if(isset($_REQUEST['lang']))
     {
 //Validate that $_REQUEST[‘lang’] is valid
@@ -89,7 +89,7 @@ getCurrentLanguage();
                             <a href="contact.php"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> <?php echo $lang['MENU_ABOUT_US'] ?></a>
                         </li>
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $lang['MENU_LANG']?><span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $lang['MENU_LANG']?><span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="?lang=ru">Русский</a></li>
                                 <li><a href="?lang=kk">Қазақ</a></li>
@@ -114,25 +114,41 @@ getCurrentLanguage();
                     <div class="col-md-12">
                         <div class="clearfix"></div>
                         <h2 class="section-heading text-center"><?php echo $lang['MENU_ABOUT_US']?></h2>
-                        
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2147.446503716887!2d63.585287579108154!3d53.182123178557354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sru!2sru!4v1490347707929" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                    </div>
-                    
-                    <div class="col-md-6 col-xs-6">
+                        <div class="row">
 
-                    </div>
+                            <p class = "lead">
+                                <?php echo $lang['ABOUT_TEXT']?>
+                            </p>
+                            <div class="col-md-6 col-md-offset-6 text-right">
+                                <address>
+                                  <strong><?php echo $lang['HEADER_TITLE']?></strong><br>
+                                  <?php echo $lang['COUNTRY_TEXT']?><br>
+                                  <?php echo $lang['ADDRESS_TEXT']?><br>
+                                   <?php echo $lang['PHONE_TEXT']?>
+                              </address>
 
-                </div>
+                              <address>
+                                  <strong><?php echo $lang['MAILTO_TEXT']?></strong><br>
+                                  <a href="mailto:arkhstroy@mail.ru"><?php echo $lang['MAIL_TEXT']?></a>
+                              </address>
+                          </div>
+                      </div>
 
-            </div>
-            <!-- /.container -->
+                      <div class="col-md-6 col-xs-6">
 
-        </div>
-        <!-- /.content-section-a -->
+                      </div>
+
+                  </div>
+
+              </div>
+              <!-- /.container -->
+
+          </div>
+          <!-- /.content-section-a -->
 
 
-        <a  name="contact"></a>
-        <div class="banner">
+          <a  name="contact"></a>
+          <div class="banner">
 
             <div class="container">
 
@@ -196,16 +212,16 @@ getCurrentLanguage();
                             <p class="copyright text-muted small">&copy; <?php echo $lang['FOOTER_TEXT'] ?></p>
 
                         </div>
-                </div>
-            </footer>
+                    </div>
+                </footer>
 
 
-            <!-- jQuery -->
-            <script src="js/jquery.js"></script>
+                <!-- jQuery -->
+                <script src="js/jquery.js"></script>
 
-            <!-- Bootstrap Core JavaScript -->
-            <script src="js/bootstrap.min.js"></script>
+                <!-- Bootstrap Core JavaScript -->
+                <script src="js/bootstrap.min.js"></script>
 
-        </body>
+            </body>
 
-        </html>
+            </html>

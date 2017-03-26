@@ -10,7 +10,7 @@ if (!empty($_FILES)) {
   $textarea = $_POST['textarea'];
   $image=$_FILES['fileToUpload']['name'];
   $target_dir = "uploadedfiles/";
-  $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+  $target_file = $target_dir .time(). basename($_FILES["fileToUpload"]["name"]);
   $uploadOk = 1;
   $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 // Check if image file is a actual image or fake image

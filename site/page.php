@@ -27,6 +27,37 @@ return 'ru'; //Default
 }
 getCurrentLanguage();
 
+
+//Header
+if (isset($_GET['development_show'])) {
+
+    $getvardevelopment=$_GET['development_show'];
+    $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+    $query = "SELECT * FROM development_show WHERE id_k = '$getvardevelopment'";
+    $data = mysqli_query($dbc, $query);
+    while ($row = mysqli_fetch_array($data)) {
+        $header=$row['header'];
+    }
+}
+if (isset($_GET['done_show'])) {
+ $getvardone = $_GET['done_show']; 
+ $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+ $query = "SELECT * FROM done_show WHERE id_k = '$getvardone'";
+ $data = mysqli_query($dbc, $query);
+ while ($row = mysqli_fetch_array($data)) {
+    $header=$row['header'];
+}
+}
+if (isset($_GET['inprocess_show'])) {
+ $getvarinprocess=$_GET['inprocess_show'];
+ $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+ $query = "SELECT * FROM inprocess_show WHERE id_k = '$getvarinprocess'";
+ $data = mysqli_query($dbc, $query);
+ while ($row = mysqli_fetch_array($data)) {
+    $header=$row['header'];
+}
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,15 +112,15 @@ getCurrentLanguage();
 
                         <li>
 
-                            <a href="#done"> <span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span><?php echo $lang['MENU_DONE'] ?></a>
+                            <a href="doneobjects.php"> <span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span><?php echo $lang['MENU_DONE'] ?></a>
 
                         </li>
 
                         <li>
-                            <a href="#development"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> <?php echo $lang['MENU_DEVELOPMENT'] ?></a>
+                            <a href="development.php"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> <?php echo $lang['MENU_DEVELOPMENT'] ?></a>
                         </li>
                         <li>
-                            <a href="#inprocess"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> <?php echo $lang['MENU_INPROCESS'] ?></a>
+                            <a href="inprocess.php"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> <?php echo $lang['MENU_INPROCESS'] ?></a>
                         </li>
 
                         <li>
@@ -113,7 +144,7 @@ getCurrentLanguage();
                 <div class="row">
                     <div class="col-md-12">
                         <div class="clearfix"></div>
-                        <h2 class="section-heading text-center"><?php echo $lang['PAGEHEADER']?></h2>
+                        <h2 class="section-heading text-center"><?php echo $lang['PAGEHEADER'].' '.$header?></h2>
                         
                         <?php
                         
@@ -178,75 +209,75 @@ getCurrentLanguage();
 
     <div class="container">
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2><?php echo $lang['MENU_CONTACT'] ?><br />
-                            <?php echo $lang['MENU_CONTACT2'] ?> <br />
-                            <?php echo $lang['MENU_CONTACT3'] ?><br>
-                            <?php echo $lang['MENU_CONTACT4'] ?></h2>
-                        </div>
-                        <div class="col-md-6">
-                            <form method="POST" onSubmit="alert('Спасибо, Ваша заявка принята');">
-                                <div class="form-group">
-                                    <label for="nameinput"><?php echo $lang['MENU_NAME'] ?></label>
-                                    <input type="text" class="form-control" id="nameinput" required placeholder="<?php echo $lang['MENU_NAME'] ?>" name="name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="phoneinput"><?php echo $lang['MENU_QUEST'] ?></label>
-                                    <input type="text" class="form-control" id="themeinput" required placeholder="<?php echo $lang['MENU_QUEST'] ?>" name="theme">
-                                </div>
-                                <div class="form-group">
-                                    <label for="phoneinput"><?php echo $lang['MENU_PHONE'] ?></label>
-                                    <input type="text" class="form-control" id="phoneinput" required placeholder="<?php echo $lang['MENU_PHONE'] ?>" name="phonenumber">
-                                </div>
-                                <button type="submit" class="btn btn-default" name="submit"><?php echo $lang['MENU_BUTTON'] ?></button>
-                            </form>
-                        </div>
-                    </div>
-
+        <div class="row">
+            <div class="col-md-6">
+                <h2><?php echo $lang['MENU_CONTACT'] ?><br />
+                    <?php echo $lang['MENU_CONTACT2'] ?> <br />
+                    <?php echo $lang['MENU_CONTACT3'] ?><br>
+                    <?php echo $lang['MENU_CONTACT4'] ?></h2>
                 </div>
+                <div class="col-md-6">
+                    <form method="POST" onSubmit="alert('Спасибо, Ваша заявка принята');">
+                        <div class="form-group">
+                            <label for="nameinput"><?php echo $lang['MENU_NAME'] ?></label>
+                            <input type="text" class="form-control" id="nameinput" required placeholder="<?php echo $lang['MENU_NAME'] ?>" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneinput"><?php echo $lang['MENU_QUEST'] ?></label>
+                            <input type="text" class="form-control" id="themeinput" required placeholder="<?php echo $lang['MENU_QUEST'] ?>" name="theme">
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneinput"><?php echo $lang['MENU_PHONE'] ?></label>
+                            <input type="text" class="form-control" id="phoneinput" required placeholder="<?php echo $lang['MENU_PHONE'] ?>" name="phonenumber">
+                        </div>
+                        <button type="submit" class="btn btn-default" name="submit"><?php echo $lang['MENU_BUTTON'] ?></button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
         <!-- /.container -->
 
     </div>
 
     <!-- Footer -->
     <footer>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <ul class="list-inline">
-                                <li>
-                                    <a href="index.php"><?php echo $lang['MENU_HOME'] ?></a>
-                                </li>
-                                <li class="footer-menu-divider">&sdot;</li>
-                                <li>
-                                    <a href="doneobjects.php"><?php echo $lang['MENU_DONE'] ?></a>
-                                </li>
-                                <li class="footer-menu-divider">&sdot;</li>
-                                <li>
-                                    <a href="development.php"><?php echo $lang['MENU_DEVELOPMENT'] ?></a>
-                                </li>
-                                <li class="footer-menu-divider">&sdot;</li>
-                                <li>
-                                    <a href="inprocess.php"><?php echo $lang['MENU_INPROCESS'] ?></a>
-                                </li>
-                                <li class="footer-menu-divider">&sdot;</li>
-                                <li>
-                                    <a href="about.php"><?php echo $lang['MENU_ABOUT_US'] ?></a>
-                                </li>
-                            </ul>
-                            <p class="copyright text-muted small">&copy; <?php echo $lang['FOOTER_TEXT'] ?></p>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="index.php"><?php echo $lang['MENU_HOME'] ?></a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="doneobjects.php"><?php echo $lang['MENU_DONE'] ?></a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="development.php"><?php echo $lang['MENU_DEVELOPMENT'] ?></a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="inprocess.php"><?php echo $lang['MENU_INPROCESS'] ?></a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="about.php"><?php echo $lang['MENU_ABOUT_US'] ?></a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">&copy; <?php echo $lang['FOOTER_TEXT'] ?></p>
 
-                        </div>
                 </div>
-            </footer>
+            </div>
+        </footer>
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
 
-</body>
+    </body>
 
-</html>
+    </html>
