@@ -28,6 +28,7 @@ $lang['ADDRESS_TEXT']='г. Костанай, ул. Карбышева 24б';
 $lang['PHONE_TEXT']='Телефон: (7142)22-48-54';
 $lang['MAILTO_TEXT']='Электронная почта';
 $lang['MAIL_TEXT']='arkhstroy@mail.ru';
+$lang['THANKS']='Спасибо, Ваша заявка принята!';
 
 // Menu
 $lang['MENU_LANG']='Язык: ';
@@ -44,4 +45,5 @@ $lang['MENU_BUTTON']='Оставить заявку';
 $lang['MENU_NAME']='Имя';
 $lang['MENU_QUEST']='Вопрос';
 $lang['MENU_PHONE']='Телефон';
+$lang['MENU_COUNTER']='Счетчик посетителей: ';
 ?>

@@ -127,6 +127,7 @@ getCurrentLanguage();
 
 
                         $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+                        mysqli_set_charset($dbc, "utf8");
                         $query="SELECT * FROM done_add";
                         $data=mysqli_query($dbc,$query);
                         $x=0;
@@ -175,7 +176,7 @@ getCurrentLanguage();
                             <?php echo $lang['MENU_CONTACT4'] ?></h2>
                         </div>
                         <div class="col-md-6">
-                            <form method="POST" onSubmit="alert('Спасибо, Ваша заявка принята');">
+                            <form method="POST" onSubmit="alert('<?php echo $lang['THANKS']?>');">
                                 <div class="form-group">
                                     <label for="nameinput"><?php echo $lang['MENU_NAME'] ?></label>
                                     <input type="text" class="form-control" id="nameinput" required placeholder="<?php echo $lang['MENU_NAME'] ?>" name="name">

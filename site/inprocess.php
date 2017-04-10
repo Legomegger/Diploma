@@ -91,7 +91,7 @@ getCurrentLanguage();
                             <a href="inprocess.php"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> <?php echo $lang['MENU_INPROCESS'] ?></a>
                         </li>
                         <li>
-                            <a href="contact.php"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> <?php echo $lang['MENU_ABOUT_US'] ?></a>
+                            <a href="about.php"><span style="margin-right: 5px"class="glyphicon glyphicon-collapse-down"></span> <?php echo $lang['MENU_ABOUT_US'] ?></a>
                         </li>
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $lang['MENU_LANG']?><span class="caret"></span></a>
@@ -124,6 +124,7 @@ getCurrentLanguage();
                         <?php 
                         
                         $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+                        mysqli_set_charset($dbc, "utf8");
                         $query="SELECT * FROM inprocess_add";
                         $data=mysqli_query($dbc,$query);
                         $x=0;
@@ -173,7 +174,7 @@ getCurrentLanguage();
                             <?php echo $lang['MENU_CONTACT4'] ?></h2>
                         </div>
                         <div class="col-md-6">
-                            <form method="POST" onSubmit="alert('Спасибо, Ваша заявка принята');">
+                            <form method="POST" onSubmit="alert('<?php echo $lang['THANKS']?>');">
                                 <div class="form-group">
                                     <label for="nameinput"><?php echo $lang['MENU_NAME'] ?></label>
                                     <input type="text" class="form-control" id="nameinput" required placeholder="<?php echo $lang['MENU_NAME'] ?>" name="name">

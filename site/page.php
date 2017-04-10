@@ -151,6 +151,7 @@ if (isset($_GET['inprocess_show'])) {
                         if (isset($_GET['done_show'])) {
                          $getvardone = $_GET['done_show']; 
                          $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+                            mysqli_set_charset($dbc, "utf8");
                          $query = "SELECT * FROM done_show WHERE id_k = '$getvardone'";
                          $data = mysqli_query($dbc, $query);
                          while ($row = mysqli_fetch_array($data)) {
@@ -164,6 +165,7 @@ if (isset($_GET['inprocess_show'])) {
                    if (isset($_GET['inprocess_show'])) {
                      $getvarinprocess=$_GET['inprocess_show'];
                      $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+                       mysqli_set_charset($dbc, "utf8");
                      $query = "SELECT * FROM inprocess_show WHERE id_k = '$getvarinprocess'";
                      $data = mysqli_query($dbc, $query);
                      while ($row = mysqli_fetch_array($data)) {
@@ -178,6 +180,7 @@ if (isset($_GET['inprocess_show'])) {
 
                 $getvardevelopment=$_GET['development_show'];
                 $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+                   mysqli_set_charset($dbc, "utf8");
                 $query = "SELECT * FROM development_show WHERE id_k = '$getvardevelopment'";
                 $data = mysqli_query($dbc, $query);
                 while ($row = mysqli_fetch_array($data)) {

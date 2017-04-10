@@ -54,6 +54,7 @@ if ($uploadOk == 0) {
     (move_uploaded_file($_FILES["fileToUploadgp"]["tmp_name"], $target_filegp));
     (move_uploaded_file($_FILES["fileToUploadpro"]["tmp_name"], $target_filepro));
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+      mysqli_set_charset($dbc, "utf8");
             // Write the data to the database
     $query="INSERT INTO done_show (header,imggp,imgpro,id_k,text) VALUES ('$textheader','$imagegp','$imagepro','$id_k','$text')";
     mysqli_query($dbc,$query);

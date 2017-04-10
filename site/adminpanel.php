@@ -3,7 +3,7 @@
 require_once('connectvars.php');
 require_once('logout.php');
 require_once('functions.php');
-
+header("Content-Type: text/html; charset=UTF-8");
 
 //подключение внешних файлов /
 session_start(); //начало сессии

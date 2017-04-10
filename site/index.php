@@ -1,41 +1,40 @@
 <?php
 
 require_once('connectvars.php');
-	require_once('functions.php');
-		require_once('common.php');
-
+require_once('functions.php');
+require_once('common.php');
     //checking if button is pressed, if true - add form to db
-			if (isset($_POST['submit'])) {
-				addApplicationToDB();
-			}
-			
+if (isset($_POST['submit'])) {
+	addApplicationToDB();
+}
 
-			?>
-			<!DOCTYPE html>
-			<html lang="ru">
 
-			<head>
+?>
+<!DOCTYPE html>
+<html lang="ru">
 
-				<meta charset="utf-8">
-				<meta http-equiv="X-UA-Compatible" content="IE=edge">
-				<meta name="viewport" content="width=device-width, initial-scale=1">
-				<meta name="description" content="">
-				<meta name="author" content="">
+<head>
 
-				<title><?php echo $lang['PAGE_TITLE']?></title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-				<!-- Bootstrap Core CSS -->
-				<link href="css/bootstrap.min.css" rel="stylesheet">
+	<title><?php echo $lang['PAGE_TITLE']?></title>
 
-				<!-- Custom CSS -->
-				<link href="css/landing-page.css" rel="stylesheet">
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 
-				<!-- Custom Fonts -->
-				<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-				<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+	<!-- Custom CSS -->
+	<link href="css/landing-page.css" rel="stylesheet">
 
-				<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-				<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!-- Custom Fonts -->
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -79,7 +78,7 @@ require_once('connectvars.php');
     						<a href="about.php"><?php echo $lang['MENU_ABOUT_US'] ?></a>
     					</li>
     					<li class="dropdown">
-    					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $lang['MENU_LANG']?><span class="caret"></span></a>
+    						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $lang['MENU_LANG']?><span class="caret"></span></a>
     						<ul class="dropdown-menu">
     							<li><a href="?lang=ru">Русский</a></li>
     							<li><a href="?lang=kk">Қазақ</a></li>
@@ -99,7 +98,6 @@ require_once('connectvars.php');
     	<a name="about"></a>
     	<div class="intro-header">
     		<div class="container">
-
     			<div class="row">
     				<div class="col-md-2">
     					<img class="img-responsive logo" src="img/logo.png">
@@ -222,7 +220,7 @@ require_once('connectvars.php');
     						<?php echo $lang['MENU_CONTACT4'] ?></h2>
     					</div>
     					<div class="col-md-6">
-    						<form method="POST" onSubmit="alert('Спасибо, Ваша заявка принята');">
+    						<form method="POST" onSubmit="alert('<?php echo $lang['THANKS']?>');">
     							<div class="form-group">
     								<label for="nameinput"><?php echo $lang['MENU_NAME'] ?></label>
     								<input type="text" class="form-control" id="nameinput" required placeholder="<?php echo $lang['MENU_NAME'] ?>" name="name">
@@ -271,10 +269,11 @@ require_once('connectvars.php');
     							<li>
     								<a href="about.php"><?php echo $lang['MENU_ABOUT_US'] ?></a>
     							</li>
-    						
+
     						</ul>
     						<p class="copyright text-muted small">&copy; <?php echo $lang['FOOTER_TEXT'] ?></p>
-
+    						<p class="copyright text-muted small"> <?php echo $lang['MENU_COUNTER']; include ('counter.php');?> </p>
+							
     					</div>
     				</div>
     			</div>

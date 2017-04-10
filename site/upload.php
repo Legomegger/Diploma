@@ -2,6 +2,7 @@
 require_once('connectvars.php');
 require_once('appvars.php');
 require_once('adminpanel.php');
+
 if (isset($_POST['submit'])) {
 
 
@@ -47,6 +48,7 @@ if ($uploadOk == 0) {
 } else {
   if ((move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file))&& isset($_POST['submit'])) {
    $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+      mysqli_set_charset($dbc, "utf8");
             // Write the data to the database
    $selectoption=$_POST['select'];
    switch ($selectoption) {
