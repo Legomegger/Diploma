@@ -39,15 +39,15 @@
       <file leaf-file-name="page.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="182" column="52" lean-forward="false" selection-start-line="182" selection-start-column="52" selection-end-line="182" selection-end-column="52" />
+            <state relative-caret-position="126">
+              <caret line="35" column="37" lean-forward="false" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
               <folding>
-                <marker date="1491758047000" expanded="true" signature="752:816" ph="SELECT * FRO... development_show" />
-                <marker date="1491758047000" expanded="true" signature="1087:1137" ph="SELECT * FRO... done_show" />
-                <marker date="1491758047000" expanded="true" signature="1406:1466" ph="SELECT * FRO... inprocess_show" />
-                <marker date="1491758047000" expanded="true" signature="5594:5644" ph="SELECT * FRO... done_show" />
-                <marker date="1491758047000" expanded="true" signature="6621:6681" ph="SELECT * FRO... inprocess_show" />
-                <marker date="1491758047000" expanded="true" signature="7620:7684" ph="SELECT * FRO... development_show" />
+                <marker date="1492335011000" expanded="true" signature="790:854" ph="SELECT * FRO... development_show" />
+                <marker date="1492335011000" expanded="true" signature="1163:1213" ph="SELECT * FRO... done_show" />
+                <marker date="1492335011000" expanded="true" signature="1520:1580" ph="SELECT * FRO... inprocess_show" />
+                <marker date="1492335011000" expanded="true" signature="5708:5758" ph="SELECT * FRO... done_show" />
+                <marker date="1492335011000" expanded="true" signature="6735:6795" ph="SELECT * FRO... inprocess_show" />
+                <marker date="1492335011000" expanded="true" signature="7734:7798" ph="SELECT * FRO... development_show" />
               </folding>
             </state>
           </provider>
@@ -56,13 +56,13 @@
       <file leaf-file-name="adminpanel.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/adminpanel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="49" lean-forward="false" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
+            <state relative-caret-position="441">
+              <caret line="215" column="77" lean-forward="false" selection-start-line="215" selection-start-column="77" selection-end-line="215" selection-end-column="77" />
               <folding>
-                <marker date="1491756847000" expanded="true" signature="3906:3937" ph="SELECT id, h... done_add" />
-                <marker date="1491756847000" expanded="true" signature="3958:3985" ph="SELECT heade... done_add" />
-                <marker date="1491756847000" expanded="true" signature="5486:5524" ph="SELECT id, h... development_add" />
-                <marker date="1491756847000" expanded="true" signature="7013:7049" ph="SELECT id, h... inprocess_add" />
+                <marker date="1492334442000" expanded="true" signature="3976:4007" ph="SELECT id, h... done_add" />
+                <marker date="1492334442000" expanded="true" signature="4028:4055" ph="SELECT heade... done_add" />
+                <marker date="1492334442000" expanded="true" signature="5630:5668" ph="SELECT id, h... development_add" />
+                <marker date="1492334442000" expanded="true" signature="7235:7271" ph="SELECT id, h... inprocess_add" />
               </folding>
             </state>
           </provider>
@@ -71,8 +71,8 @@
       <file leaf-file-name="uploaddev.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uploaddev.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="56" column="39" lean-forward="false" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
+            <state relative-caret-position="444">
+              <caret line="56" column="6" lean-forward="true" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="39" />
               <folding>
                 <marker date="1491758047000" expanded="true" signature="2414:2536" ph="INSERT INTO development_show... " />
               </folding>
@@ -109,8 +109,8 @@
       <file leaf-file-name="uploaddone.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uploaddone.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="56" column="39" lean-forward="false" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
+            <state relative-caret-position="475">
+              <caret line="62" column="3" lean-forward="true" selection-start-line="62" selection-start-column="3" selection-end-line="62" selection-end-column="3" />
               <folding>
                 <marker date="1491758047000" expanded="true" signature="2377:2492" ph="INSERT INTO done_show... " />
               </folding>
@@ -152,7 +152,6 @@
         <option value="$PROJECT_DIR$/languages/lang.kk.php" />
         <option value="$PROJECT_DIR$/languages/lang.en.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/adminpanel.php" />
         <option value="$PROJECT_DIR$/upload.php" />
         <option value="$PROJECT_DIR$/doneobjects.php" />
         <option value="$PROJECT_DIR$/uploaddev.php" />
@@ -160,6 +159,7 @@
         <option value="$PROJECT_DIR$/uploadinprocess.php" />
         <option value="$PROJECT_DIR$/development.php" />
         <option value="$PROJECT_DIR$/inprocess.php" />
+        <option value="$PROJECT_DIR$/adminpanel.php" />
         <option value="$PROJECT_DIR$/page.php" />
       </list>
     </option>
@@ -195,6 +195,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -223,7 +224,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -265,14 +265,16 @@
       <workItem from="1491553799638" duration="6000" />
       <workItem from="1491756197393" duration="1184000" />
       <workItem from="1491759365301" duration="98000" />
+      <workItem from="1492334371736" duration="705000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6967000" />
+    <option name="totallyTimeSpent" value="7672000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -339,11 +341,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1490452050000" expanded="true" signature="512:622" ph="INSERT INTO application_to_call... " />
-            <marker date="1490452050000" expanded="true" signature="811:844" ph="SELECT * FRO... application_to_call" />
-            <marker date="1490452050000" expanded="true" signature="1275:1306" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -351,7 +348,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -368,12 +364,12 @@
         <state relative-caret-position="2790">
           <caret line="186" column="37" lean-forward="true" selection-start-line="186" selection-start-column="37" selection-end-line="186" selection-end-column="37" />
           <folding>
-            <marker date="1491758047000" expanded="true" signature="752:816" ph="SELECT * FRO... development_show" />
-            <marker date="1491758047000" expanded="true" signature="1087:1137" ph="SELECT * FRO... done_show" />
-            <marker date="1491758047000" expanded="true" signature="1406:1466" ph="SELECT * FRO... inprocess_show" />
-            <marker date="1491758047000" expanded="true" signature="5594:5644" ph="SELECT * FRO... done_show" />
-            <marker date="1491758047000" expanded="true" signature="6621:6681" ph="SELECT * FRO... inprocess_show" />
-            <marker date="1491758047000" expanded="true" signature="7620:7684" ph="SELECT * FRO... development_show" />
+            <marker date="1492335011000" expanded="true" signature="790:854" ph="SELECT * FRO... development_show" />
+            <marker date="1492335011000" expanded="true" signature="1163:1213" ph="SELECT * FRO... done_show" />
+            <marker date="1492335011000" expanded="true" signature="1520:1580" ph="SELECT * FRO... inprocess_show" />
+            <marker date="1492335011000" expanded="true" signature="5708:5758" ph="SELECT * FRO... done_show" />
+            <marker date="1492335011000" expanded="true" signature="6735:6795" ph="SELECT * FRO... inprocess_show" />
+            <marker date="1492335011000" expanded="true" signature="7734:7798" ph="SELECT * FRO... development_show" />
           </folding>
         </state>
       </provider>
@@ -438,11 +434,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <marker date="1490452050000" expanded="true" signature="512:622" ph="INSERT INTO application_to_call... " />
-            <marker date="1490452050000" expanded="true" signature="811:844" ph="SELECT * FRO... application_to_call" />
-            <marker date="1490452050000" expanded="true" signature="1275:1306" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -450,7 +441,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -458,7 +448,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -466,7 +455,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -483,10 +471,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1491756847000" expanded="true" signature="3906:3937" ph="SELECT id, h... done_add" />
-            <marker date="1491756847000" expanded="true" signature="3958:3985" ph="SELECT heade... done_add" />
-            <marker date="1491756847000" expanded="true" signature="5486:5524" ph="SELECT id, h... development_add" />
-            <marker date="1491756847000" expanded="true" signature="7013:7049" ph="SELECT id, h... inprocess_add" />
+            <marker date="1492334442000" expanded="true" signature="3976:4007" ph="SELECT id, h... done_add" />
+            <marker date="1492334442000" expanded="true" signature="4028:4055" ph="SELECT heade... done_add" />
+            <marker date="1492334442000" expanded="true" signature="5630:5668" ph="SELECT id, h... development_add" />
+            <marker date="1492334442000" expanded="true" signature="7235:7271" ph="SELECT id, h... inprocess_add" />
           </folding>
         </state>
       </provider>
@@ -536,11 +524,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1490452050000" expanded="true" signature="512:622" ph="INSERT INTO application_to_call... " />
-            <marker date="1490452050000" expanded="true" signature="811:844" ph="SELECT * FRO... application_to_call" />
-            <marker date="1490452050000" expanded="true" signature="1275:1306" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -575,11 +558,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1490452050000" expanded="true" signature="512:622" ph="INSERT INTO application_to_call... " />
-            <marker date="1490452050000" expanded="true" signature="811:844" ph="SELECT * FRO... application_to_call" />
-            <marker date="1490452050000" expanded="true" signature="1275:1306" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -621,7 +599,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -629,7 +606,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -645,11 +621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <marker date="1490452050000" expanded="true" signature="512:622" ph="INSERT INTO application_to_call... " />
-            <marker date="1490452050000" expanded="true" signature="811:844" ph="SELECT * FRO... application_to_call" />
-            <marker date="1490452050000" expanded="true" signature="1275:1306" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -657,7 +628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -700,19 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adminpanel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="49" lean-forward="false" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
-          <folding>
-            <marker date="1491756847000" expanded="true" signature="3906:3937" ph="SELECT id, h... done_add" />
-            <marker date="1491756847000" expanded="true" signature="3958:3985" ph="SELECT heade... done_add" />
-            <marker date="1491756847000" expanded="true" signature="5486:5524" ph="SELECT id, h... development_add" />
-            <marker date="1491756847000" expanded="true" signature="7013:7049" ph="SELECT id, h... inprocess_add" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/upload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="750">
@@ -721,26 +678,6 @@
             <marker date="1491757955000" expanded="true" signature="1816:1902" ph="INSERT INTO done_add... " />
             <marker date="1491757955000" expanded="true" signature="2070:2163" ph="INSERT INTO development_add... " />
             <marker date="1491757955000" expanded="true" signature="2331:2422" ph="INSERT INTO inprocess_add... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploaddev.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="56" column="39" lean-forward="false" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
-          <folding>
-            <marker date="1491758047000" expanded="true" signature="2414:2536" ph="INSERT INTO development_show... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploaddone.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="56" column="39" lean-forward="false" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
-          <folding>
-            <marker date="1491758047000" expanded="true" signature="2377:2492" ph="INSERT INTO done_show... " />
           </folding>
         </state>
       </provider>
@@ -788,17 +725,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/uploaddev.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="56" column="6" lean-forward="true" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="39" />
+          <folding>
+            <marker date="1491758047000" expanded="true" signature="2414:2536" ph="INSERT INTO development_show... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminpanel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="215" column="77" lean-forward="false" selection-start-line="215" selection-start-column="77" selection-end-line="215" selection-end-column="77" />
+          <folding>
+            <marker date="1492334442000" expanded="true" signature="3976:4007" ph="SELECT id, h... done_add" />
+            <marker date="1492334442000" expanded="true" signature="4028:4055" ph="SELECT heade... done_add" />
+            <marker date="1492334442000" expanded="true" signature="5630:5668" ph="SELECT id, h... development_add" />
+            <marker date="1492334442000" expanded="true" signature="7235:7271" ph="SELECT id, h... inprocess_add" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploaddone.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="62" column="3" lean-forward="true" selection-start-line="62" selection-start-column="3" selection-end-line="62" selection-end-column="3" />
+          <folding>
+            <marker date="1491758047000" expanded="true" signature="2377:2492" ph="INSERT INTO done_show... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/page.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="182" column="52" lean-forward="false" selection-start-line="182" selection-start-column="52" selection-end-line="182" selection-end-column="52" />
+        <state relative-caret-position="126">
+          <caret line="35" column="37" lean-forward="false" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
           <folding>
-            <marker date="1491758047000" expanded="true" signature="752:816" ph="SELECT * FRO... development_show" />
-            <marker date="1491758047000" expanded="true" signature="1087:1137" ph="SELECT * FRO... done_show" />
-            <marker date="1491758047000" expanded="true" signature="1406:1466" ph="SELECT * FRO... inprocess_show" />
-            <marker date="1491758047000" expanded="true" signature="5594:5644" ph="SELECT * FRO... done_show" />
-            <marker date="1491758047000" expanded="true" signature="6621:6681" ph="SELECT * FRO... inprocess_show" />
-            <marker date="1491758047000" expanded="true" signature="7620:7684" ph="SELECT * FRO... development_show" />
+            <marker date="1492335011000" expanded="true" signature="790:854" ph="SELECT * FRO... development_show" />
+            <marker date="1492335011000" expanded="true" signature="1163:1213" ph="SELECT * FRO... done_show" />
+            <marker date="1492335011000" expanded="true" signature="1520:1580" ph="SELECT * FRO... inprocess_show" />
+            <marker date="1492335011000" expanded="true" signature="5708:5758" ph="SELECT * FRO... done_show" />
+            <marker date="1492335011000" expanded="true" signature="6735:6795" ph="SELECT * FRO... inprocess_show" />
+            <marker date="1492335011000" expanded="true" signature="7734:7798" ph="SELECT * FRO... development_show" />
           </folding>
         </state>
       </provider>

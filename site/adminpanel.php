@@ -128,6 +128,7 @@ function showDate(){
 									<textarea cols="70" rows="9" name="textareaa" placeholder="Описание объекта"></textarea>
 									<?php
 									$dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+                                    mysqli_set_charset($dbc, "utf8");
 									$query = "SELECT id, header FROM done_add";
 									$query1="SELECT header FROM done_add";
 									$data = mysqli_query($dbc, $query);
@@ -170,6 +171,7 @@ function showDate(){
 
 										<?php
 										$dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+                                        mysqli_set_charset($dbc, "utf8");
 										$query = "SELECT id, header FROM development_add";
 
 										$data = mysqli_query($dbc, $query);
@@ -211,6 +213,7 @@ function showDate(){
 											<textarea cols="70" rows="9" name="textareac" placeholder="Описание объекта"></textarea>
 											<?php
 											$dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+                                            mysqli_set_charset($dbc, "utf8");
 											$query = "SELECT id, header FROM inprocess_add";
 
 											$data = mysqli_query($dbc, $query);
